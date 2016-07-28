@@ -1,3 +1,8 @@
+---
+layout: single
+title: Working with MongoDB using F# & C#
+---
+
 In this blog post I am going to show you how you can access and perform CRUD operation from C# based application against [MongoDb](https://www.mongodb.org/). In our application, we are going to persist & read feed data from underlying [mongodb](https://www.mongodb.org/) database. Feeds are used by websites to publish the frequently updated information. Many websites publish their feed url. We can subscribe to those feeds via online feed readers and keep our self up to date with latest changes. In our application we are going to do the following :
 
 *   Read a Feed Url
