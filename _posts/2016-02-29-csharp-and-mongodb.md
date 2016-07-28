@@ -127,7 +127,7 @@ In the above code, we have created a type provider called “**BaseFeed**”. Us
 
 Before we can start [mongodb](https://www.mongodb.org/) related development, we need to setup [mongodb](https://www.mongodb.org/) in our machine. Luckily the steps involved in installing MongoDb aren’t that difficult. Download and install [MongoDb](https://www.mongodb.org/) from here : [https://www.mongodb.org](https://www.mongodb.org/). You can choose either the msi based installer or the zip format. Install or unzip the content in any directory of your choice say C:/mongo. Add to system path, the mongodb’s bin directory path i.e. C:\mongo\bin. Next, at the bin directory level, create two new folders i.e. db & log. And inside db folder, create another folder called data. The data folder will contain our database related files. Finally, we need to install [mongodb](https://www.mongodb.org/) as service. For that, lets first create a configuration file inside C:\mongo directory and call it as mongod.cfg. Add following lines to the config file :
 
-```
+```yaml
 systemLog:  
     destination: file  
     path: c:\mongo\log\mongod.log  
@@ -147,7 +147,7 @@ With [mongodb](https://www.mongodb.org/) installed, go ahead and add another C# 
 
 Unlike other databases, mongodb doesn’t require us to first create the database. If the target database is not present then it will automatically create the database on the very first request. But in order to interact with any database we need two things : database name & connection string. And in case of mongodb we also need one more thing which is “collection name”. Mongodb is a document type database where everything is stored in form of document grouped under collection. A collection is basically a group of documents. For our application lets define these three things in config file :
 
-```
+```xml
 <configuration>  
   <connectionStrings>  
     <add name="FeedrConnectionString" connectionString="mongodb://localhost:27017/" />  
@@ -206,7 +206,7 @@ This completes our [mongodb](https://www.mongodb.org/) setup related code. Next 
 
 In our **FeedrInfrastructure** project create a new folder called “Model”. Inside this folder, create two new classes “**FeedDocument.cs**” and “**FeedItem.cs**”. We will use these model class for representing the feed structure defined earlier in the post. In FeedDocument.cs class add the following code.
 
-```
+```csharp
 namespace FeedrInfrastructure.Model  
 {  
     /// <summary>  
@@ -245,7 +245,7 @@ namespace FeedrInfrastructure.Model
 
 And in FeedItem.cs class add the following code:
 
-```
+```csharp
 namespace FeedrInfrastructure.Model  
 {  
     /// <summary>  
@@ -296,7 +296,7 @@ As its clear we are going to use the FeedDocument class to represent our underly
 
 Create a new folder called “**Service**” in **FeedrInfrastructure** project and add to it class called “**FeedService.cs**” class. Add following code to the “**FeedService.cs**” class.
 
-```
+```csharp
 namespace FeedrInfrastructure.Service  
 {  
     public class FeedService  
