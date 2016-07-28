@@ -99,7 +99,7 @@ Lets get started. Create a new Visual Studio blank solution called “Feedr”. 
 
 Next open up the “Parser.fs” file and add the following code.
 
-```fsharp
+```
 module Parser  
 
 open System.Net  
