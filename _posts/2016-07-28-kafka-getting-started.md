@@ -1,7 +1,8 @@
 ---
 layout: single
 title: Kafka - Getting Started
-excerpt_separator: <!--more-->\
+excerpt_separator: <!--more-->
+tags: [Kafka, Java]
 ---
 
 Simple step-by-step guide on how to setup [kafka](http://kafka.apache.org). Post includes details on setting-up Zookeeper, defining topics & creating producers & consumers.

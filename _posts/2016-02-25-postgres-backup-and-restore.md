@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Postgres - BackUp & Restore
+tags: [postgresql]
 ---
 In this blog post, I am going to share with you all the commands required for taking database back-up & restoring database from those back-up files. I am working with [Postgres](http://www.postgresql.org/) database and I am using Navicat IDE. Now taking back-up & restoring database is possible with Navicat but for some reason in my case I was experiencing large delays in database restore. Thus I decided to switch back to the proven approach of taking database back-up & restore via command line. Lets get started.
 
