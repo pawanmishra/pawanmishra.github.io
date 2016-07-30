@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Going Functional - Elementry Sorting Algorithms in F#
+tags: [F#, Algorithms]
 ---
 In this blog post, I will provide F# implementation for Selection & Insertion sorting algorithms. First the C#/Java based implementation of these algorithms taken from [Algorithms 4th Edition](http://algs4.cs.princeton.edu/home/) by Robert Sedgewick & Kevin Wayne.
 

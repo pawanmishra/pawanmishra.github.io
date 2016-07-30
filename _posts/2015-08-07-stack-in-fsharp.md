@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Going Functional - Stack Implementation in F#
+tags: [F#, Algorithms]
 ---
 In this blog post, I will port linked list based Stack ADT code in C# to F#. Given below is the C# implementation. It’s inspired from the Java based implementation provided in the [Algorithms 4th Edition](http://algs4.cs.princeton.edu/home/) book by Robert Sedgewick and Kevin Wayne. The Stack ADT class is called LLStack because .Net framework itself contains Stack data structure.
 

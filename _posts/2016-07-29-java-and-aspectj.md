@@ -2,7 +2,9 @@
 layout: single
 title: AOP in Java
 tags: [Java, AspectJ]
+excerpt: In this blog post, I am going to use an open source library called [**jcabi-aspects**](http://aspects.jcabi.com/index.html) for implementing ***loggable*** aspect.   
 ---
+{% include toc %}
 Have you ever found yourself in situation wherein your application is not behaving as expected in staging or production? If it's the case in your local, you can easily debug the code but debugging a remotly running application is not easy & definitly not recommened. In such situation, the very first thing that comes to our mind is **logging**.
 
 Logging is simple & easy to implement. You want to log something, just go ahead & add the log statement in your code. The only issue with logging is that it's dependent upon the person adding the log statement. For some it's a good thing to have, for other's don't add unless it's really required. But once things start to go wrong in production, the very first thing we say to ourself is .. uhh I should have logged the method call. This is where [AOP](https://en.wikipedia.org/wiki/Aspect-oriented_programming)(Aspect Oriented Programming) comes into picture. The idea behind **AOP** is simple, you annotate your code & the AOP library replaces those annotations with appropriate runtime code. **AOP** is two step process :
@@ -330,5 +332,7 @@ Print return message : FROMMAIN
 ```
 
 As we can see from above, just by adding **@Loggable** annotation, the framework is logging for us the input & return values along with the total running time of the method.
+
+### Summary
 
 This is just the basic usage of **@Loggable** annotation. The annotation can be overloaded with additional flags and there are other annotations too that you can try & use as per your convinience. You can read more about it [here](http://aspects.jcabi.com/index.html).

@@ -1,16 +1,13 @@
 ---
 layout: single
 title: Kafka - Getting Started
-excerpt_separator: <!--more-->
 tags: [Kafka, Java]
+excerpt: In this blog post, I am going to outline the steps required for setting up Kafka in your local development machine.
 ---
-
-Simple step-by-step guide on how to setup [kafka](http://kafka.apache.org). Post includes details on setting-up Zookeeper, defining topics & creating producers & consumers.
-<!--more-->
-
+{% include toc %}
 In this blog post, I am going to outline the steps required for setting up Kafka in your local development machine. Kafka is high-scalable distributed commit log management system. It allows multiple producers & consumers to simultaneously publish & consume messages. Kafka is at the core of todays massive streaming data architecture which powers companies like Netflix, AirBnB etc.
 
-Components
+### Components
 
 *   Zookeeper setup & startup
 *   Kafka setup
@@ -18,7 +15,7 @@ Components
 *   [Kafka](http://kafka.apache.org) Topic configuration
 *   [Producers](http://kafka.apache.org/documentation.html#producerapi) & [Consumers](http://kafka.apache.org/documentation.html#consumerapi)
 
-### Zookeeper
+#### Zookeeper
 
 * * *
 
@@ -113,7 +110,7 @@ Config directory contains various configuration related properties file. The fil
 
 Setting up broker involves creating server.properties file & initializing some of the essential configuration options. If you need more that one broker, simply create another copy of server.properties file & modify the configuration parameters. Lets look at server-1.properties file. The properties file is really large. I have only listed the properties that we are going to change for our example:
 
-server-1.properties
+##### server-1.properties
 
 ```
 # The id of the broker. This must be set to a unique integer for each broker.  
@@ -138,7 +135,7 @@ log.dirs=/Users/mishrapaw/Documents/mykafka/kafka-log-1
 
 Broker.id, port, listeners & log.dirs values must be unique for every broker instance. Ensure that log.dirs must exist & must be unique for every broker instance.
 
-server-2.properties
+##### server-2.properties
 
 ```
 # The id of the broker. This must be set to a unique integer for each broker.  
@@ -174,8 +171,7 @@ $./bin/kafka-server-start.sh config/server-2.properties &
 With Kafka brokers running fine, its time to setup topics & partitions.
 
 ### Topic & Partitions
-
-* * *
+---
 
 In Kafka, messages produced by consumer are written to what is known as topics. Topics are similar to queues in rabbitmq. Topics provide granularity or partitioning based on the type of data. Say for e.g. if you are setting up system for processing college related information, then you can defined one topic for students related data, one for teachers related data etc. Once you have created a topic, you then define number of partitions for that topic. By default topic will have one partition but you can increase the number of partitions. Partitions help you in controlling/segregating data coming from different producers.  If for e.g. you have two producers producing data for a given topic then you can assign one producer to write data to one partition & make the other producer write data to another. Let’s go ahead & create a topic with two partitions. Run the following command for creating topic :
 
@@ -189,8 +185,8 @@ The above command creates a topic called “blogTest” with two partition. I ha
 mishrapaw$ ./bin/kafka-topics.sh --describe --topic blogTest --zookeeper localhost:2181
 ```
 
-Output
-
+#### Output
+---
 ```
 Topic:blogTest    PartitionCount:2    ReplicationFactor:1    Configs:  
     Topic: blogTest    Partition: 0    Leader: 1    Replicas: 1    Isr: 1  
@@ -226,6 +222,8 @@ mishrapaw$ ./bin/kafka-console-producer.sh --broker-list localhost:9091,localhos
 
 Once the producers are running, you can start writing messages in the console and you will notice that those messages are getting consumed by the consumer.
 
+### Summary
+---
 What I have outlined in this blog post is simple, get-started approach with Kafka. You can do a lot more number of things with Kafka. For e.g. :
 
 *   Add replication functionality. This provides fault-tolerance support & is much needed requirement for any production level app.

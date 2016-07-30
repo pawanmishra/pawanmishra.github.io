@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Going Functional - Symbol Graph in F#
+tags: [F#, Algorithms]
 ---
 In the previous [post](https://weblogs.asp.net/pawanmishra/going-functional-depth-and-breadth-first-search-in-f), we have seen the implementation of undirected graph data structure in F#. In this post, we will make use of the Graph data structure to implement the **Symbol Graph** data structure. You can read more about Symbol Graph data structure [here](http://algs4.cs.princeton.edu/41graph/). Given below is the java based implementation of Symbol Graph data structure. The implementation if taken from [Algorithms 4th Edition](http://algs4.cs.princeton.edu/home/) by Robert Sedgewick and Kevin Wayne.
 

@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Async Web Api Performance
+tags: [C#]
 ---
 In one of my recent WPF project, we made extensive use of **async-await** pattern. Async-await pattern greatly simplified the call-back and continuation based code required for keeping the UI responsive. In WPF, the pattern for implementing async-await is to invoke the IO/CPU intensive code in a background thread and attach the continuation logic on the main UI thread. In WPF, since we have a dedicated UI thread that controls all of the UI elements, using async-await is really helpful in keeping the UI responsive without having to write complicated call-back based code.
 

@@ -2,7 +2,9 @@
 layout: single
 title: Working with MongoDB using F# & C#
 tags: [C#, F#, mongodb]
+excerpt: In this blog post I am going to show you how you can access and perform CRUD operation from C# based application against [MongoDb](https://www.mongodb.org/). In our application, we are going to persist & read feed data from underlying [mongodb](https://www.mongodb.org/) database.
 ---
+{% include toc %}
 In this blog post I am going to show you how you can access and perform CRUD operation from C# based application against [MongoDb](https://www.mongodb.org/). In our application, we are going to persist & read feed data from underlying [mongodb](https://www.mongodb.org/) database. Feeds are used by websites to publish the frequently updated information. Many websites publish their feed url. We can subscribe to those feeds via online feed readers and keep our self up to date with latest changes. In our application we are going to do the following :
 
 *   Read a Feed Url
@@ -12,7 +14,7 @@ In this blog post I am going to show you how you can access and perform CRUD ope
 
 The feed url we are going to use in our application is : [http://www.geeksforgeeks.org/feed/](http://www.geeksforgeeks.org/feed/ "http://www.geeksforgeeks.org/feed/")
 
-### Parse feed xml into strongly typed entity  
+### Parsing Feed Xml  
 ---
 
 We will make use of F# type providers capability for converting feed xml into strongly typed entity. Below is a sample feed xml documents :
@@ -78,6 +80,8 @@ We will make use of F# type providers capability for converting feed xml into st
 </channel>  
 </rss>
 ```
+#### Feed Structure
+---
 
 In general the xml structure looks something like below :
 
@@ -96,6 +100,8 @@ Lets get started. Create a new Visual Studio blank solution called “Feedr”. 
  <package id="FSharp.Data" version="2.2.5" targetFramework="net452" />  
 </packages>
 ```
+#### FSharp feed parser
+---
 
 Next open up the “Parser.fs” file and add the following code.
 
@@ -144,6 +150,9 @@ Next for installing mongodb as service, issue the following command. You can rea
 Ensure that mongodb is installed and up & running as service in services.msc. It’s time to get started with C# development.
 
 With [mongodb](https://www.mongodb.org/) installed, go ahead and add another C# library project to our previously created “**Feedr**” solution. Call this project “**FeerdInfrastructure**”. Add to this project as reference the F# project “**FeedParser**” from our solution. In order for us to interact with mongodb from C# code, we have to first install the latest mongodb C# drivers. The latest drivers are available via nuget package. Search for MongoDB.Driver v2.2.3(latest driver) in Nuget Package manager. MongoDB.Driver will also install other dependencies namely **MongoDB.Bson** & **MongoDB.Driver.Core**.
+
+### C# Model & Service Classes
+---
 
 Unlike other databases, mongodb doesn’t require us to first create the database. If the target database is not present then it will automatically create the database on the very first request. But in order to interact with any database we need two things : database name & connection string. And in case of mongodb we also need one more thing which is “collection name”. Mongodb is a document type database where everything is stored in form of document grouped under collection. A collection is basically a group of documents. For our application lets define these three things in config file :
 
@@ -201,7 +210,7 @@ namespace FeedrInfrastructure
 
 This completes our [mongodb](https://www.mongodb.org/) setup related code. Next we will define some model classes & a service layer class for performing CRUD operations.
 
-### Model & Service Classes
+#### Feed Infrastructure Model
 ---
 
 In our **FeedrInfrastructure** project create a new folder called “Model”. Inside this folder, create two new classes “**FeedDocument.cs**” and “**FeedItem.cs**”. We will use these model class for representing the feed structure defined earlier in the post. In FeedDocument.cs class add the following code.
@@ -296,6 +305,9 @@ As its clear we are going to use the FeedDocument class to represent our underly
 
 Create a new folder called “**Service**” in **FeedrInfrastructure** project and add to it class called “**FeedService.cs**” class. Add following code to the “**FeedService.cs**” class.
 
+#### Feed Infrastructure Service
+---
+
 ```csharp
 namespace FeedrInfrastructure.Service  
 {  
@@ -385,4 +397,6 @@ namespace FeedrInfrastructure.Service
 
 We have methods for getting all the feed documents, getting single feed document, get latest feeds for a given feed and updating status of given FeedItem. Notice carefully that almost all of the api methods provided by the mongodb driver are marked async. You can find the latest mongodb C# driver documentation here : [http://mongodb.github.io/mongo-csharp-driver/2.2/reference/](http://mongodb.github.io/mongo-csharp-driver/2.2/reference/ "http://mongodb.github.io/mongo-csharp-driver/2.2/reference/")
 
+### Summary
+---
 I am going to limit the content of this blog post till here. In the next post, I will build upon this infrastructure and add a web api layer on top of. Going further we will work on building a thin web client for interacting with the application. Our own mini feed reader.

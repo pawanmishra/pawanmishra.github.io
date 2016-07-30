@@ -2,10 +2,15 @@
 layout: single
 title: RxJava - SubscribeOn & ObserveOn
 tags: [RxJava, Java]
+excerpt: In this blog post we will cover the two most important aspect of RxJava programming which is configuring observeOn & subscribeOn listeners.
 ---
+{% include toc %}
 In one of my previous [post](https://weblogs.asp.net/pawanmishra/rxjava-part1), I have covered the basics of setting up RxJava based file processing application. In this blog post we will cover the two most important aspect of RxJava programming which is configuring **observeOn** & **subscribeOn** listeners. Before we get into the technical discussion of these concepts, lets quickly review the sample code snippet that we will be using for our discussion.
 
 First we have the RxObserver.java class which returns an [Observable](https://github.com/ReactiveX/RxJava/wiki/Observable).
+
+### Observer Class
+---
 
 ```java
 public class RxObserver {  
@@ -41,6 +46,9 @@ public class RxObserver {
 ```
 
 Given a file path, the above code creates an Observable and calls the onNext method on the subscribed instance every time it reads a line from the file. Once all of the lines are read then it calls onCompleted() and in case of exceptions it invokes onError. Next we have the RxSubscriber.java class.
+
+### Subscriber Class
+---
 
 ```java
 public class RxSubscriber {   
@@ -132,7 +140,7 @@ The output is simple to understand. Since we haven’t specified the subscribeOn
 
 > Take away : If you do not specify subscribeOn and observeOn schedulers on your Observable then by default all of your code will execute on the main thread. By main thread I mean the thread which instantiate your Observable.
 
-### Enable subscribeOn on Observable
+#### Enable subscribeOn on Observable
 ---
 
 Alright lets change our RxSubscriber code this time by adding subscribeOn scheduler. Modify the RxSubscriber.java class as given below.
@@ -190,7 +198,7 @@ Now what would have happened if we haven’t kept our main thread in a infinite 
 
 > Take away : If you only specify subscribeOn, then the entire logic of Observable & the subscription runs on one thread. The thread which gets created via main thread when it encounters the “**subscribeOn**” statement.
 
-### Enable observeOn on Observable
+#### Enable observeOn on Observable
 ---
 
 Next instead of subscribeOn lets enable observeOn on our Observable.
@@ -244,7 +252,7 @@ Completed
 
 And what a change this time. With “observeOn” in place its only the callback handlers defined in our RxObserver class that runs on different thread. The subscription logic defined in the **RxObserver.java** class still runs of the main thread. This is very important to understand. Changing of one line altered the entire flow of our code. Lets make one final change and set both the properties i.e. subscribeOn & observeOn.
 
-### Enable subscribeOn & observeOn
+#### Enable subscribeOn & observeOn
 
 * * *
 
@@ -299,5 +307,8 @@ Completed
 As expected this time our subscription & the callback handler code ran on different threads.
 
 As we have seen in this blog post how setting up subscribeOn and observeOn alters the behavior of our application. When designing your application, you should carefully think about what part of your code you would like to execute on which scheduler. By default [RxJava](https://github.com/ReactiveX/rxjava) comes with different flavors of [Schedulers](http://reactivex.io/documentation/scheduler.html). Understanding Schedulers is going to be another topic which I would cover in some later post.
+
+### Summary
+---
 
 But what is really amazing here is that with minimal amount of code changes we have configured to run parts of our application on different threads. Our simple app is multi-threaded without having us to worry about all of the thread related complexities. The Observe & subscription model automatically takes care of handling of tasks between the threads. I hope that this very basic tutorial has helped you in understanding the not so obvious concept of [RxJava](https://github.com/ReactiveX/rxjava) programming.

@@ -3,6 +3,7 @@ layout: single
 title: MEANT Stack - Part1
 tags: [vscode, node, typescript, mongodb, angularjs]
 ---
+{% include toc %}
 In this multi-part blog series, I will walk you through on how to build a small web application using  [Nodejs](https://nodejs.org/en/), [MongoDb](https://www.mongodb.org/), [TypeScript](http://www.typescriptlang.org/) & [AngularJs](https://angularjs.org/). We will be building a small web application for creating and registering teams. A team will have team members and a unique team name. The application will have two screens. First one used for creating a new team and the other one used for listing all the registered teams. In this post, we will concentrate on installing & setting up of required software's. Let’s get started.
 
 > Note : Some of the code snippets that I have used in this blog post is taken from the “[Angular with TypeScript](http://www.pluralsight.com/courses/angular-typescript)” [pluralsight](http://www.pluralsight.com/) course by Deborah Kurata. I am thankful to pluralsight & Deborah Kurata for coming up with such an amazing course on Angularjs & TypeScript.

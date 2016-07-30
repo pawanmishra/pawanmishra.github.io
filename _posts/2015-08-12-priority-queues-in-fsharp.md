@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Going Functional - Priority Queues F#
+tags: [F#, Algorithms]
 ---
 In this blog post, I will provide the F# implementation for max priority queue. First the java based implementation taken from [Algorithms 4th Edition](http://algs4.cs.princeton.edu/home/) by Robert Sedgewick and Kevin Wayne. You can find the complete priority queue implementation here : [http://algs4.cs.princeton.edu/24pq/MaxPQ.java.html](http://algs4.cs.princeton.edu/24pq/MaxPQ.java.html "http://algs4.cs.princeton.edu/24pq/MaxPQ.java.html")
 

@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Going Functional - Merge & Quick Sort in F#
+tags: [F#, Algorithms]
 ---
 Continuing our functional journey, in this post I will first present the Java based implementation of merge sort followed by F# based implementation. Finally we will repeat the same steps for QuickSort algorithm. Java based implementation of the sorting algorithms is taken from [Algorithms 4th Edition](http://algs4.cs.princeton.edu/home/) by **Robert Sedgewick** and **Kevin Wayne**.
 

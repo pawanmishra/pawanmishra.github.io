@@ -54,7 +54,7 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
 
@@ -190,17 +190,16 @@ tag_archive:
   type: liquid
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#  enabled:
+jekyll-archives:
+  enabled:
 #    - categories
-#    - tags
-#  layouts:
+    - tags
+  layouts:
 #    category: archive-taxonomy
-#    tag: archive-taxonomy
-#  permalinks:
+    tag: archive-taxonomy
+  permalinks:
 #    category: /categories/:name/
-#    tag: /tags/:name/
-
+    tag: /tags/:name/
 
 # HTML Compression
 # - http://jch.penibelst.de/
@@ -225,6 +224,7 @@ defaults:
       author_profile: true
       comments: true
 
+# page
 sidebar:
-  - title: "Title"
-    text: "Some text here."
+  - title: "Another Title"
+    text: "More text here."

@@ -3,7 +3,8 @@ layout: single
 title: MEANT Stack Part2 - Node & Mongoose SetUp
 tags: [vscode, node, typescript, mongodb, angularjs]
 ---
-In the previous post, we went through the steps of installing necessary software's & modules required for building our application. In this post, we are going to concentrate on our application backend i.e. setting up node as as web server & mongoose related codebase for performing CRUD activities in the underlying mongo database.
+{% include toc %}
+In the previous [post]({% post_url 2015-09-10-mean-stack-part1 %}), we went through the steps of installing necessary software's & modules required for building our application. In this post, we are going to concentrate on our application backend i.e. setting up node as as web server & mongoose related codebase for performing CRUD activities in the underlying mongo database.
 
 > Note : Ensure that the [mongodb](https://www.mongodb.org/) service is running by verifying it in the services.msc. Also now that we are starting with actual coding, it’s time for us to open up our solution(File –> Open Folder) in Visual Studio Code.
 

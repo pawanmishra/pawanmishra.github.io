@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Going Functional - Breadth & Depth First Search in F#
+tags: [F#, Algorithms]
 ---
 In this blog post, I will provide the depth and breadth first traversal implementation in F#. But before that lets look at the Java based implementation of these traversal mechanisms. The code is taken from [Algorithms 4th Edition](http://algs4.cs.princeton.edu/home/) by Robert Sedgewick and Kevin Wayne. You can find the complete code here : [http://algs4.cs.princeton.edu/40graphs/](http://algs4.cs.princeton.edu/40graphs/ "http://algs4.cs.princeton.edu/40graphs/") 
 

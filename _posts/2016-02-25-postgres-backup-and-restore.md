@@ -2,7 +2,9 @@
 layout: single
 title: Postgres - BackUp & Restore
 tags: [postgresql]
+excerpt: In this blog post, I am going to share with you all the commands required for taking database back-up & restoring database from those back-up files. 
 ---
+{% include toc %}
 In this blog post, I am going to share with you all the commands required for taking database back-up & restoring database from those back-up files. I am working with [Postgres](http://www.postgresql.org/) database and I am using Navicat IDE. Now taking back-up & restoring database is possible with Navicat but for some reason in my case I was experiencing large delays in database restore. Thus I decided to switch back to the proven approach of taking database back-up & restore via command line. Lets get started.
 
 > Note: The commands listed below in the post are available in official documentation page. This post is more like a book keeping exercise for me so that I can easily look-up the command & setup information in future.
@@ -18,7 +20,7 @@ Next thing we need to do is to add this path to our machines system path. Run th
 
 Now you will be able to invoke the psql shell command from anywhere in your machine.
 
-### Taking database dump : pg_dump  
+#### Taking database dump : pg_dump  
 ---
 
 The command for taking database dump is :
@@ -27,7 +29,7 @@ The command for taking database dump is :
 
 Like me if your [Postgres](http://www.postgresql.org/) database is hosted in other machine or inside VM then provide the ip address of the machine where host_name is required. The command assumes that [Postgres](http://www.postgresql.org/) is listening on post 5432 and “postgres” is the database user name. You can read about the additional command line arguments here : [http://www.postgresql.org/docs/9.5/static/app-pgdump.html](http://www.postgresql.org/docs/9.5/static/app-pgdump.html "http://www.postgresql.org/docs/9.5/static/app-pgdump.html")
 
-### Restoring database from dump file : pg_restore
+#### Restoring database from dump file : pg_restore
 ---
 
 The command for restoring database from dump file is :

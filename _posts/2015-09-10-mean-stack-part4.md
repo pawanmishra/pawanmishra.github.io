@@ -2,12 +2,14 @@
 layout: single
 title: MEANT Stack Part4 - Front End Implementation - 2
 tags: [vscode, node, typescript, mongodb, angularjs]
+exceprt: In this part we will implement the html page used for registering the teams.
 ---
+{% include toc %}
 This is the last part of the four part blog series on building web applications using MEAN stack, [TypeScript](http://www.typescriptlang.org/) and Visual Studio Code. In the previous three parts we have covered the following things :
 
-*   [Part 1](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-1-setup) : Setting up the requires software, ide, node modules
-*   [Part 2](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-2-node-mongoose-setup) : REST Api implementation using ExpressJs and Mongoose based CRUD api for backend Mongo database
-*   [Part 3](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-3-front-end-implementation-i) : Implementation of html page for listing registred teams. Also lots of [AngularJs](https://angularjs.org/) related setup code implementation.
+*   [Part 1]({% post_url 2015-09-10-mean-stack-part1 %}) : Setting up the requires software, ide, node modules
+*   [Part 2]({% post_url 2015-09-10-mean-stack-part2 %}) : REST Api implementation using ExpressJs and Mongoose based CRUD api for backend Mongo database
+*   [Part 3]({% post_url 2015-09-10-mean-stack-part3 %}) : Implementation of html page for listing registred teams. Also lots of [AngularJs](https://angularjs.org/) related setup code implementation.
 
 In this part we will implement the html page used for registering the teams. With most of the AngularJs related ground work has already been covered in the previous post, this post will be comparatively shorter than the previous posts in this series. Before we get down to the markup & related angular implementation, lets have a look at the UI of the html page :
 
@@ -19,7 +21,7 @@ In this part we will implement the html page used for registering the teams. Wit
 
 “**Add** [**Member**](https://msdn.microsoft.com/en-us/library/dd233244.aspx)” button is used to add new team members to the underlying collection in angularjs. Added team members are listed in the table below.any point of time, added team members can be removed by clicking the “**Remove**” button. Finally, provide the team_name information and click “**Submit**”. This will save the team to the underlying mongo database. Lets go through the angularjs controller & markup for this page.
 
-### HTML Template
+#### HTML Template
 
 * * *
 
@@ -93,9 +95,12 @@ In this part we will implement the html page used for registering the teams. Wit
 </div>
 ```
 
+### Controller
+---
+
 The controller for this page is called “**TeamRegistrationCtrl**”. the markup is making use of basic angularjs directives like ng-repeat, ng-hide etc. Styling of elements is done via [Bootstrap](http://getbootstrap.com/) css.
 
-### TeamRegistrationCtrl
+#### TeamRegistrationCtrl controller
 
 * * *
 
@@ -280,5 +285,8 @@ remove(index : number): void {
 ```
 
 Lastly, we have three helper functions namely success, failed & remove. Success callback is used when save or submit operation is completed successfully. Failed when the CRUD operations failed. Remove method is used for removing added team members from the “members” collection.
+
+### Summary
+---
 
 In this blog post series, I might not have covered all of the code in a line by line manner. But if you have basic knowledge of angular & [nodejs](https://nodejs.org/en/), then you will be able to understand what the code is doing. This code base is a nice playground for practicing existing & upcoming front end technologies. I hope that you have & you will enjoy this blog post series.

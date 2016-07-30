@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Is Screen Saver running or not?
+tags: [C#]
 ---
 Although its rare but at times while building desktop based applications, we might come across situation wherein we are asked to handle “Screen Saver” operation i.e. perform some logic based on whether the “Screen Saver” is on of off. I found the following code snippet on internet almost two years back. I would like to thank the original author of the code. It’s been long time and its not possible for me to search for the original author of the code.
 

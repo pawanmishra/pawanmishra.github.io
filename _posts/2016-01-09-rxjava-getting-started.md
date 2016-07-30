@@ -2,7 +2,9 @@
 layout: single
 title: RxJava - Getting Started
 tags: [RxJava, Java]
+excerpt: In this blog post, I am going to explain you the basics of [RxJava](https://github.com/ReactiveX/rxjava) by walking you through one of the sample application that I have built using [RxJava](https://github.com/ReactiveX/rxjava) framework. 
 ---
+{% include toc %}
 In this blog post, I am going to explain you the basics of [RxJava](https://github.com/ReactiveX/rxjava) by walking you through one of the sample application that I have built using [RxJava](https://github.com/ReactiveX/rxjava) framework. All that the application does is reads line from files, does some pre-processing with the read lines and then prints the output to the console. I will not get into the basics of [RxJava](https://github.com/ReactiveX/rxjava) or in general reactive programming fundamentals. If you are not familiar with the “**_Hello World”_** of reactive programming using [RxJava](https://github.com/ReactiveX/rxjava) then this might not be the suitable place for you to start. However if you know how to create an [Observable](https://github.com/ReactiveX/RxJava/wiki/Observable) and subscribe to it, then you will find this article not too difficult.
 
 ### SetUp
@@ -17,6 +19,9 @@ If you would like to follow along then go ahead and create a new maven project i
 </dependency>
 ```
 
+#### Entities
+---
+
 Create following files:
 
 *   **Main.java** : contains our main method. Entry point of the application.
@@ -27,7 +32,7 @@ Next we need a sample file for our application. Contents of the file doesn't mat
 
 Lets start by adding some code in files listed above. In the first iteration all we are going to do is to have an [Observable](https://github.com/ReactiveX/RxJava/wiki/Observable) in place and subscribe to it. All of the observation + subscription stuff happens on the main thread.
 
-### Iteration 1
+### Observer Class
 
 In **RxObserver.java** class, add the following code snippet:
 
@@ -63,6 +68,9 @@ In the above code, we are returning an [Observable](https://github.com/ReactiveX
 *   onCompleted() and onError() calls can only be made once
 
 Now that we have our [Observable](https://github.com/ReactiveX/RxJava/wiki/Observable), its time to define our Observer in **RxSubscribe.java** class.
+
+### Subscriber Class
+---
 
 ```java
 public class RxSubscriber {   
@@ -112,7 +120,7 @@ Completed Main method complete
 
 From the output its clear that all of the code is executed synchronously on the main thread. For our demo application it is not an issue but for any real time application this is not an ideal thing to do. What we really want to happen is that the [Observable](https://github.com/ReactiveX/RxJava/wiki/Observable) & the Observer code should run on different thread and our main thread should remain free to process any other application specific requests. Let's make some changes to the code and set our main thread free.
 
-### Iteration – 2
+### SubscribeOn vs ObserveOn
 
 Lets re-run our code by specifying [subscribeOn](http://reactivex.io/documentation/operators/subscribeon.html) handler in **RxSubscriber.java** class.
 
@@ -193,5 +201,8 @@ static String targetPath = "<some_path>/processed";
     }  
 }
 ```
+
+### Summary
+---
 
 And with the small change of leaving our main thread to run forever resolved our previously mentioned issue. We have now developed a small application using [RxJava](https://github.com/ReactiveX/rxjava) which does file processing in an asynchronous manner without even writing any explicit manual thread handling code. The scope of [RxJava](https://github.com/ReactiveX/rxjava) is much more than this simple file processing application. But I hope that you will agree with me that there is so much more that we can do with [RxJava](https://github.com/ReactiveX/rxjava).

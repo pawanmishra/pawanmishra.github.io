@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Dependency Injection in PowerShell
+tags: [C#, PowerShell]
 ---
 In this blog post, I will explain how we can invoke dependency injection based managed code from [PowerShell](http://en.wikipedia.org/wiki/Windows_PowerShell). Invoking regular managed code from PowerShell is quiet straight forward. Say for example, you are asked to create an instance of [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient%28v=vs.118%29.aspx) class and call the GetStringAsync method on it, then it can be done with just following few lines of code.
 

@@ -2,8 +2,10 @@
 layout: single
 title: MEANT Stack Part3 - Front End Implementation - 1
 tags: [vscode, node, typescript, mongodb, angularjs]
+excerpt: In this and the next module, we will concentrate on building front-end of our application using [AngularJs](https://angularjs.org/), [TypeScript](http://www.typescriptlang.org/) & [Bootstrap](http://getbootstrap.com/).
 ---
-In the previous two posts([part-1](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-1-setup) & [part-2](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-2-node-mongoose-setup)) we have gone through the steps of installing required software's and setting up of our applications back-end server functionality. In this and the next module, we will concentrate on building front-end of our application using [AngularJs](https://angularjs.org/), [TypeScript](http://www.typescriptlang.org/) & [Bootstrap](http://getbootstrap.com/). In this post, we will focus on building following things :
+{% include toc %}
+In the previous two posts([part-1]({% post_url 2015-09-10-mean-stack-part1 %}) & [part-2]({% post_url 2015-09-10-mean-stack-part2 %})) we have gone through the steps of installing required software's and setting up of our applications back-end server functionality. In this and the next module, we will concentrate on building front-end of our application using [AngularJs](https://angularjs.org/), [TypeScript](http://www.typescriptlang.org/) & [Bootstrap](http://getbootstrap.com/). In this post, we will focus on building following things :
 
 *   Configure VS Code for TypeScript development
 *   Angular related setup code
@@ -70,18 +72,18 @@ Next add following files as per the structure given below :
 *   public
     *   app
         *   common
-            *   <span color="#4f81bd" style="color: #4f81bd;">common.services.ts</span>
-            *   <span color="#4f81bd" style="color: #4f81bd;">dataAccessService.ts</span>
+            *   common.services.ts
+            *   dataAccessService.ts
         *   teams
-            *   <span color="#4f81bd" style="color: #4f81bd;">team.ts</span>
-            *   <span color="#4f81bd" style="color: #4f81bd;">teamListCtrl.ts</span>
-            *   <span color="#4f81bd" style="color: #4f81bd;">teamListView.html</span>
-            *   <span color="#4f81bd" style="color: #4f81bd;">teamRegistrationCtrl.ts</span>
-            *   <span color="#4f81bd" style="color: #4f81bd;">teamRegistrationView.html</span>
-        *   <span color="#4f81bd" style="color: #4f81bd;">app.ts</span>
-    *   <span color="#4f81bd" style="color: #4f81bd;">index.html</span>
+            *   team.ts
+            *   teamListCtrl.ts
+            *   teamListView.html
+            *   teamRegistrationCtrl.ts
+            *   teamRegistrationView.html
+        *   app.ts
+    *   index.html
 
-I have highlighted the files to be added in <span color="#4f81bd" style="color: #4f81bd;">color</span>. In this blog post, we will not be working on all of the files. Now that we have our TypeScript files(blank) added in our solution, just go ahead and press **Ctrl + Shift + B.**  This builds our solution and of everything ran file without throwing any errors, then TypeScript transpiler will  generate the corresponding *.js files in the same location.
+I have highlighted the files to be added in color. In this blog post, we will not be working on all of the files. Now that we have our TypeScript files(blank) added in our solution, just go ahead and press **Ctrl + Shift + B.**  This builds our solution and of everything ran file without throwing any errors, then TypeScript transpiler will  generate the corresponding *.js files in the same location.
 
 > Remember : Every time *.ts file is modified, remember to press the **Ctrl+Shift+B**  command. This will update the corresponding *.js file. If you find that your application is not responding to the changes, then most likely you have forgotten to  update your JavaScript files.
 
@@ -123,12 +125,12 @@ Finally, add to the **index.html** the following mark-up. We will be making use 
             <div class="container-fluid">  
                 <div class="navbar-header">  
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">  
-                    <span class="sr-only">Toggle navigation</span>  
-                    <span class="icon-bar"></span>  
-                    <span class="icon-bar"></span>  
-                    <span class="icon-bar"></span>  
+                    <span class="sr-only">Toggle navigation  
+                    <span class="icon-bar">  
+                    <span class="icon-bar">  
+                    <span class="icon-bar">  
                     </button>  
-                    <span class="navbar-brand">ACME</span>  
+                    <span class="navbar-brand">ACME  
                 </div>  
                 <div id="navbar" class="navbar-collapse collapse">  
                     <ul class="nav navbar-nav">  
