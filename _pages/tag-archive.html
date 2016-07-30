@@ -7,6 +7,17 @@ author_profile: true
 
 {% include base_path %}
 {% include group-by-array collection=site.posts field="tags" %}
+{% capture path_type_override %}#{% endcapture %}
+
+<p class="page__taxonomy">
+  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].tags_label }} </strong>
+  <span itemprop="keywords">
+    {% for tag_for in group_names %}
+      {% capture tag_word %}{{ tag_for | downcase }}{% endcapture %}
+      <a href="{{ base_path }}{{ tag_word | slugify | prepend: path_type_override | prepend: site.tag_archive.path}}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
+    {% endfor %}
+  </span>
+</p>
 
 {% for tag in group_names %}
   {% assign posts = group_items[forloop.index0] %}

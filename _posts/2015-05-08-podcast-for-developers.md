@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Podcast for developers
+tags: [C#]
 ---
 Podcasts are a great way of utilizing your time while you are on the move i.e. driving car or riding in a bus/train. If you are unlucky like me, who has to spend couple of hours each day travelling between office & home and vice versa, then listening to podcasts while you are stuck in traffic can be of great help. Not only are you learning something new but it also helps you in keeping calm and makes the journey appear comparatively shorter.
 

@@ -1,6 +1,7 @@
 ---
 layout: single
 title: Laptop Inauguration
+tags: [C#]
 ---
 Today I received my new laptop which is an <a href="http://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i5-2450M+%40+2.50GHz">Intel Core i5-2450M @ 2.50GHz</a> 4 GB RAM machine . The other laptop(office provided) which I have used for past two years for programming is an <a href="http://www.cpubenchmark.net/cpu.php?cpu=Intel+Core2+Duo+T6570+%40+2.10GHz">Intel Core2 Duo T6570 @ 2.10GHz</a> machine. Reason why I am talking about the laptops that I own is because of my interest in writing multi-threaded/parallel code using the new TPL API provided in the .Net 4.0 framework.
 I have spent significant amount of time in past one year writing code using the Parallel API of .Net framework. But given the fact that the hardware that I was using for running those applications wasn&rsquo;t that great, I was never much satisfied with the overall improvement in performance.

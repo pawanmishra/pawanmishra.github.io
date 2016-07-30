@@ -1,6 +1,7 @@
 ---
 layout: single
 title: IEquatable Interface
+tags: [C#]
 ---
 Consider the following generic method :
 
