@@ -2,3 +2,11 @@
 main:
   - title: "About Me"
     url: /about/
+
+content:
+  - title: "Post By"
+    children:
+      - title: "Year"
+        url: /year-archive/
+      - title: "Tags"
+        url: /tags/

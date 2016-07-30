@@ -334,5 +334,5 @@ Print return message : FROMMAIN
 As we can see from above, just by adding **@Loggable** annotation, the framework is logging for us the input & return values along with the total running time of the method.
 
 ### Summary
-
+---
 This is just the basic usage of **@Loggable** annotation. The annotation can be overloaded with additional flags and there are other annotations too that you can try & use as per your convinience. You can read more about it [here](http://aspects.jcabi.com/index.html).

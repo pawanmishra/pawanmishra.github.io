@@ -216,6 +216,8 @@ defaults:
     values:
       layout: single
       author_profile: true
+      sidebar:
+        nav: "content"
   # _posts
   - scope:
       path: ""
@@ -223,8 +225,5 @@ defaults:
     values:
       author_profile: true
       comments: true
-
-# page
-sidebar:
-  - title: "Another Title"
-    text: "More text here."
+      sidebar:
+        nav: "content"
