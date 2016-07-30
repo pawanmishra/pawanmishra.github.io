@@ -1,6 +1,7 @@
 ---
 layout: single
 title: MEANT Stack Part3 - Front End Implementation - 1
+tags: [vscode, node, typescript, mongodb, angularjs]
 ---
 In the previous two posts([part-1](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-1-setup) & [part-2](https://weblogs.asp.net/pawanmishra/building-web-app-using-mean-stack-part-2-node-mongoose-setup)) we have gone through the steps of installing required software's and setting up of our applications back-end server functionality. In this and the next module, we will concentrate on building front-end of our application using [AngularJs](https://angularjs.org/), [TypeScript](http://www.typescriptlang.org/) & [Bootstrap](http://getbootstrap.com/). In this post, we will focus on building following things :
 

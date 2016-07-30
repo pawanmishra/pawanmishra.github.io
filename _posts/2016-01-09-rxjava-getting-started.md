@@ -1,6 +1,7 @@
 ---
 layout: single
 title: RxJava - Getting Started
+tags: [RxJava, Java]
 ---
 In this blog post, I am going to explain you the basics of [RxJava](https://github.com/ReactiveX/rxjava) by walking you through one of the sample application that I have built using [RxJava](https://github.com/ReactiveX/rxjava) framework. All that the application does is reads line from files, does some pre-processing with the read lines and then prints the output to the console. I will not get into the basics of [RxJava](https://github.com/ReactiveX/rxjava) or in general reactive programming fundamentals. If you are not familiar with the “**_Hello World”_** of reactive programming using [RxJava](https://github.com/ReactiveX/rxjava) then this might not be the suitable place for you to start. However if you know how to create an [Observable](https://github.com/ReactiveX/RxJava/wiki/Observable) and subscribe to it, then you will find this article not too difficult.
 

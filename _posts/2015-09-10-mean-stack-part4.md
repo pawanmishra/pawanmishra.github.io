@@ -1,6 +1,7 @@
 ---
 layout: single
 title: MEANT Stack Part4 - Front End Implementation - 2
+tags: [vscode, node, typescript, mongodb, angularjs]
 ---
 This is the last part of the four part blog series on building web applications using MEAN stack, [TypeScript](http://www.typescriptlang.org/) and Visual Studio Code. In the previous three parts we have covered the following things :
 

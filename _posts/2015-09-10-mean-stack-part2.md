@@ -1,6 +1,7 @@
 ---
 layout: single
 title: MEANT Stack Part2 - Node & Mongoose SetUp
+tags: [vscode, node, typescript, mongodb, angularjs]
 ---
 In the previous post, we went through the steps of installing necessary software's & modules required for building our application. In this post, we are going to concentrate on our application backend i.e. setting up node as as web server & mongoose related codebase for performing CRUD activities in the underlying mongo database.
 

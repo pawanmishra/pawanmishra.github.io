@@ -6,7 +6,7 @@ In the previous [post](https://weblogs.asp.net/pawanmishra/going-functional-dept
 
 ```java
 public class SymbolGraph {  
-    private ST <string integer="">st;  // string -> index  
+    private ST st;  // string -> index  
     private String[] keys;           // index  -> string  
     private Graph G;  
 

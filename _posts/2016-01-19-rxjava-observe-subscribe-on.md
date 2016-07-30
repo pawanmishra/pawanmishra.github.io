@@ -1,6 +1,7 @@
 ---
 layout: single
 title: RxJava - SubscribeOn & ObserveOn
+tags: [RxJava, Java]
 ---
 In one of my previous [post](https://weblogs.asp.net/pawanmishra/rxjava-part1), I have covered the basics of setting up RxJava based file processing application. In this blog post we will cover the two most important aspect of RxJava programming which is configuring **observeOn** & **subscribeOn** listeners. Before we get into the technical discussion of these concepts, lets quickly review the sample code snippet that we will be using for our discussion.
 
