@@ -12,3 +12,5 @@ My key strengths include
 * Excellent in communication
 * Independent, diligent and responsible as a team player
 * Self-motivated for continued excellence
+
+Feel free to download most recent copy of my [resume]({{ site.url }}/assets/Pawan Mishra.pdf).

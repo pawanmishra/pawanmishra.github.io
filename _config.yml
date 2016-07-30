@@ -82,7 +82,7 @@ author:
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : "rkpawan"
   pinterest        :
   soundcloud       :
   stackoverflow    : "242172/pawan-mishra"
@@ -224,3 +224,7 @@ defaults:
     values:
       author_profile: true
       comments: true
+
+sidebar:
+  - title: "Title"
+    text: "Some text here."
