@@ -225,5 +225,7 @@ defaults:
     values:
       author_profile: true
       comments: true
+      share: true
+      related: true
       sidebar:
         nav: "content"

@@ -4,7 +4,7 @@ main:
     url: /about/
 
 content:
-  - title: "Post By"
+  - title: "Posts By"
     children:
       - title: "Year"
         url: /year-archive/
