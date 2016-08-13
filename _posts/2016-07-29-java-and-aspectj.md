@@ -333,6 +333,10 @@ Print return message : FROMMAIN
 
 As we can see from above, just by adding **@Loggable** annotation, the framework is logging for us the input & return values along with the total running time of the method.
 
+### Update
+---
+The above mentioned error : "Expecting a stackmap frame at branch target 52" was happening because I was using old version of ***jcabi-maven-plugin***. Migrating to latest version(0.14) solves the problem. With the stackmap error gone, we won't require the **-noverify** flag as well.
+
 ### Summary
 ---
 This is just the basic usage of **@Loggable** annotation. The annotation can be overloaded with additional flags and there are other annotations too that you can try & use as per your convinience. You can read more about it [here](http://aspects.jcabi.com/index.html).
