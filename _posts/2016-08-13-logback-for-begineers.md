@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Logback for Begineers
+title: Logback for Beginners
 tags: [Java, Logback]
 excerpt: In this blog post, I am going to explain two key concepts of logging - ***log levels*** & ***logger hierarchy*** using [**logback**](http://logback.qos.ch) logging framework. 
 ---
