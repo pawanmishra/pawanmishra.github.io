@@ -80,7 +80,7 @@ Lets get started!!
 
 #### json\_build_object
 ---
-The very first thing we are going to try is to construct the nested **address** json. Sql query for fetching address of given customer looks like below:
+First thing we are going to try is to construct the nested **address** json. Sql query for fetching address of given customer looks like below:
 
 ```sql
 select cc.first_name, cc.last_name, a.address, a.address2, a.district, a.postal_code,
@@ -153,7 +153,7 @@ This time the result will be:
 | --- | --- |
 | 121 | character varying[] |
 
-character varying[] aka text array. In order to convert it into json specific array, wrap the aggar_agg function in **array\_to\_json** function.
+character varying[] aka text array. In order to convert it into json specific array, wrap the array_agg function in **array\_to\_json** function.
 
 ```sql
 select c.customer_id, 
