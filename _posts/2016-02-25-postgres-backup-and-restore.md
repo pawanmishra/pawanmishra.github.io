@@ -32,7 +32,7 @@ Like me if your [Postgres](http://www.postgresql.org/) database is hosted in oth
 #### Restoring database from dump file : pg_restore
 ---
 
-The command for restoring database from dump file is :
+The command for restoring database from dump file(or even tar file) is :
 
 > pg_restore -h <host_name> -p 5432 -U postgres -d <database_name> -v "<file_path>”
 
