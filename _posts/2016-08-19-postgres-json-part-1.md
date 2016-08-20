@@ -12,6 +12,8 @@ Now supporting json as datatype will not be of much use, if developers manipulat
 
 In this blog post, I am going to concentrate mainly on functions which help in document creation. In the next post, I will concentrate on functions & operators which help in filtering & processing of json based data.
 
+> **Note**: For a quick overview of JSON functions & operators in Postgres, you can refer the official documentation [here](https://www.postgresql.org/docs/9.4/static/functions-json.html)
+
 ### SetUp
 ---
 Before we can proceed with our examples we need a database against which we are going to run our queries. I am making an assumption that you have [postgres 9.5](https://www.postgresql.org) database installed & up and running in your machine.
