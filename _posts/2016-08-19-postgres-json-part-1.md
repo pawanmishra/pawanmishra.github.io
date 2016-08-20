@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Postgres & Json - Part1
+title: Postgres and Json : Part1
 tags: [postgres, jsonb]
 excerpt: In this blog post, we are going to look into the various **jsonb** related functions available in postgres database.
 ---
