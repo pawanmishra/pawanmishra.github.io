@@ -254,4 +254,4 @@ With this we have successfully copied all of the customer aggregated json data i
 
 ### Summary
 ---
-In this post, we looked at the three main jsonb related functions which help in creating json based data. In the end we copied the aggregated json data into a new table. In the next post, I will concentrate mainly on filtering & processing related functions. I hope you have enjoyed this post.
+In this post, we looked at the three main jsonb related functions which help in creating json based data. In the end we copied the aggregated json data into a new table. In the next [post]({% post_url 2016-08-20-postgres-json-part-2 %}), I will concentrate mainly on filtering & processing related functions. I hope you have enjoyed this post.
