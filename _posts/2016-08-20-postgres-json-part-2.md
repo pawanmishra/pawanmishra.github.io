@@ -6,9 +6,13 @@ excerpt: In this blog post, we are going to explore some of the **json** related
 ---
 {% include toc %}
 
-In the previous [post]({% post_url 2016-08-19-postgres-json-part-1 %}), we looked at functions which help in creation of json structured documents in postgres database. We were able to consolidate all of the customer related information in json format & we saved all the records in **customer_agg** table. In this post, we are going to look into general json processing & filtering related functions & operators. 
+In the previous [post]({% post_url 2016-08-19-postgres-json-part-1 %}), we looked at functions which help in creation of json structured documents in postgres database. We were able to consolidate all of the customer related information in json format & we saved all the records in **customer_agg** table. 
 
-### json\_agg
+### Functions & Operators
+---
+In this post, we are going to look into general json processing & filtering related functions & operators. 
+
+#### json\_agg
 ---
 Currently the **customer_agg** table contains 599 jsonb records. One for each customer. We can use **json\_agg** function to return all or few records in form of jsonb array. 
 
@@ -27,7 +31,7 @@ select json_agg(agg_data) from
 | --- |
 | [{"email": "jared.ely@sakilacustomer.org", "active": 1, "titles": ["Breaking Home", "Bucket Brotherhood", "Celebrity Horn", "Chasing Fight", "Clerks Angels", "Crooked Frogmen", "Expecations Natural", "Insects Stone", "Island Exorcist", "League Hellfighters", "Oz Liaisons", "Party Knock", "Reds Pocus", "Secrets Paradise", "Sleepless Monsoon", "Straight Hours", "Sweethearts Suspects", "Whale Bikini", "Wind Phantom"], "address": {"city": "Purwakarta", "postal": "25972", "country": "Indonesia", "address1": "1003 Qinhuangdao Street", "address2": "", "district": "West Java"}, "first_name": "Jared", "customer_id": 524}, {"email": "mary.smith@sakilacustomer.org", "active": 1, "titles": ["Adaptation Holes", "Amistad Midsummer", "Attacks Hate", "Bikini Borrowers", "Closer Bang", "Confidential Interview", "Dalmations Sweden", "Detective Vision", "Doors President", "Expecations Natural", "Ferris Mother", "Finding Anaconda", "Fire Wolves", "Fireball Philadelphia", "Fireball Philadelphia", "Frost Head", "Jeepers Wedding", "Jumanji Blade", "Luck Opus", "Minds Truman", "Musketeers Wait", "Patient Sister", "Patient Sister", "Racer Egg", "Saturday Lambs", "Savannah Town", "Snatch Slipper", "Talented Homicide", "Unforgiven Zoolander", "Usual Untouchables", "Women Dorado", "Youth Kick"], "address": {"city": "Sasebo", "postal": "35200", "country": "Japan", "address1": "1913 Hanoi Way", "address2": "", "district": "Nagasaki"}, "first_name": "Mary", "customer_id": 1}]|
 
-### -> vs ->>
+#### -> vs ->>
 ---
 Accessing individual properties within json record is quiet natuarlly one of the most obvious requirement from any library meant for json processing. In postgres, we can access individual properties via **->** and **->>** operator. But why two operator? Run the below query & see the output:
 
@@ -64,7 +68,7 @@ select agg_data -> 'address' ->> 'city' city
 from customer_agg;
 ```
 
-### jsonb\_array\_length
+#### jsonb\_array\_length
 ---
 The above function is self-explanatory. It accepts **json** or **jsonb** array and prints the length of the array. Lets use this function to print, for every customer the number of titles rented by that individual.
 
@@ -87,7 +91,7 @@ from customer_agg
 where jsonb_array_length(agg_data -> 'titles') > 20;
 ```
 
-### jsonb\_to\_record
+#### jsonb\_to\_record
 ---
 
 **jsonb\_to\_record**(and similar function for **json**) helps is de-constructing **jsonb** record back into relational format. Consider the below sql:
@@ -125,7 +129,7 @@ limit 1;
 
 Running the above query returns exactly the same result as previous one in which we provided the explicit jsonb string. As evident from above query, the tranformed resultset is referenced via alias **x**.
 
-### jsonb\_to_recordset
+#### jsonb\_to_recordset
 ---
 The previous function is capable of converting individual **jsonb** record into relational format. What if we have an array of **jsonb** records? What we are looking for is a way to convert array of **jsonb** records in individial rows of record in relational format. **jsonb to recordset** helps in achieving the desired result. Run the below query:
 
@@ -148,7 +152,7 @@ The above query might seem little complicated but I did it on purpose because I 
 
 As we can see, it's possible thought not very intutive to convert **jsonb** records back into relational format.
 
-### Contaiment operator : @>
+#### Contaiment operator : @>
 ---
 
 Containment operator helps in determing if the jsonb record contains the given value. For e.g. if we want to filter out all the records where first_name is **Mary** then we can use containment operator as below:
