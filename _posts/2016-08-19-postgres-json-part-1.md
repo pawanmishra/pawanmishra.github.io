@@ -2,7 +2,7 @@
 layout: single
 title: Postgres and Json - Part1
 tags: [postgres, jsonb]
-excerpt: In this blog post, we are going to look into the various **jsonb** related functions available in postgres database.
+excerpt: In this blog post, we are going to look into the various **json** related functions available in postgres database specific to json creation.
 ---
 {% include toc %}
 
@@ -13,6 +13,9 @@ Now supporting json as datatype will not be of much use, if developers manipulat
 In this blog post, I am going to concentrate mainly on functions which help in document creation. In the next post, I will concentrate on functions & operators which help in filtering & processing of json based data.
 
 > **Note**: For a quick overview of JSON functions & operators in Postgres, you can refer the official documentation [here](https://www.postgresql.org/docs/9.4/static/functions-json.html)
+
+> **Note**: Postgres db has two different data types for json related data namely **json** & **jsonb**. It's quiet rare that you will ever use **json** data type in production. Thus 
+most of the functions presented in this & the following post are in reference with **jsonb** data type. I will however use the term **json** irrespective of the data type.
 
 ### SetUp
 ---
