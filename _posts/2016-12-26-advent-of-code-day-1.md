@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Advent Of Code - Day 1: No Time for a Taxicab
+title: Advent Of Code - Day 1 No Time for a Taxicab
 tags: [Scala]
 excerpt: I recently came across this site called [Advent Of Code](http://adventofcode.com/) which lists set of problems in increasing order of complexity. If you are like me, trying to learn new programming language(in my case it's Scala), then solving handful of such problems will greatly expedite your learning process.
 ---
@@ -17,7 +17,7 @@ I recently came across this site called [Advent Of Code](http://adventofcode.com
 
 Given below is the working but not so good solution for **Day 1: No Time for a Taxicab** problem.
 
-#### Not So Functional
+#### Not So Functional Solution
 ---
 
 ```scala
@@ -132,7 +132,7 @@ findDistance(coordinates)
 
 In the below solution, I have modified the **newDirection** function by breaking down the code re-usable chunks of small functions. As you will see below, the new code is much more readable & short.
 
-#### Somewhat Functional
+#### Somewhat Better(Functional) Solution
 ---
 
 ```scala
