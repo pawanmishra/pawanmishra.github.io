@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Advent Of Code - Day 1 No Time for a Taxicab
+title: Advent Of Code 2016
 tags: [Scala]
 excerpt: I recently came across this site called [Advent Of Code](http://adventofcode.com/) which lists set of problems in increasing order of complexity. If you are like me, trying to learn new programming language(in my case it's Scala), then solving handful of such problems will greatly expedite your learning process.
 ---
@@ -204,4 +204,127 @@ As you can see the **newDirection** method is now much small & is easy to read. 
 
 I do understand that the above code can still be significantly improved specially the **updateVisited** block. Also string constants like "N", "S" etc can be replaced with enums. I think for Day 1 problem, the solution listed above is sufficient. As I move forward, I will try to learn & improve my Scala skills by incorporating Scala's core & advanced language traits in my solutions.
 
-Thanks.
+### Day 2: Bathroom Security
+---
+
+You can go through the problem definition [here](https://adventofcode.com/2016/day/2). The key thing in solving this problem was the representation of the numeric keypad. 
+
+| 1 |2|3|
+|---|---|---|
+|4|5|6|
+|7|8|9|
+
+First instinct is to represent the above grid using two dimensional array. The solution will work but code will become overly complicated because of all of the boundary conditions. In the solution below, I have created two maps : one for mapping number against grid position(1 -> (0,0)) & another map which is basically reverse of the first one i.e. ((0,0) -> 1). From the code below, you will be able to understand how the two maps helped me in solving the problem.
+
+
+```scala
+import scala.io.Source
+
+val fileName = "/Users/mishrapaw/ScalaInAction/src/main/resources/Day2Input.txt"
+val directions = { for (line <- Source.fromFile(fileName).getLines) yield line } toList
+
+/* For Part 1
+val keyToIndex = Map(
+  1 -> (0,0),
+  2 -> (0,1),
+  3 -> (0,2),
+  4 -> (1,0),
+  5 -> (1,1),
+  6 -> (1,2),
+  7 -> (2,0),
+  8 -> (2,1),
+  9 -> (2,2))
+
+val indexToKey = keyToIndex.map(x => (x._2 -> x._1))
+*/
+
+// For Part 2
+val keyToIndex = Map(
+  "1" -> (0,2),
+  "2" -> (1,1),
+  "3" -> (1,2),
+  "4" -> (1,3),
+  "5" -> (2,0),
+  "6" -> (2,1),
+  "7" -> (2,2),
+  "8" -> (2,3),
+  "9" -> (2,4),
+  "A" -> (3,1),
+  "B" -> (3,2),
+  "C" -> (3,3),
+  "D" -> (4,2))
+
+val indexToKey = keyToIndex.map(x => (x._2 -> x._1))
+
+def getCode(lines: List[String]): Unit = {
+
+  def movement(key: String, direction: Char): String = {
+    val position = keyToIndex.get(key).get
+    val newPosition = direction match {
+      case 'U' => (position._1 - 1, position._2)
+      case 'D' => (position._1 + 1, position._2)
+      case 'L' => (position._1, position._2 - 1)
+      case 'R' => (position._1, position._2 + 1)
+    }
+
+    val newKey = indexToKey.get(newPosition)
+    if (newKey.isDefined) newKey.get else key
+  }
+
+  def parse(data: List[String], key: String): Unit = {
+    data match {
+      case x::xs =>
+        val finalKey = x.foldLeft(key)((k,t) => movement(k, t))
+        print(finalKey)
+        parse(xs, finalKey)
+      case Nil => println("Done")
+    }
+  }
+
+  parse(lines, "5")
+
+}
+
+getCode(directions)
+```
+Instead of manually creating the map(**keyToIndex**), you can also created it automatically using the below code :
+
+```scala
+val index = for (i <- 0 to 2; j <- 0 to 2) yield (i, j)
+val keys = { for ((value, count) <- index.zip(Stream from 1)) yield (count -> value) } toMap
+```
+
+### Day 3: Squares With Three Sides
+---
+
+```scala
+import scala.io.Source
+
+case class Triangle(a: Int, b: Int, c: Int) {
+  def IsTriangle(): Boolean = {
+    if (a + b > c && a + c > b && b + c > a) true else false
+  }
+}
+
+val fileName = "/Users/mishrapaw/ScalaInAction/src/main/resources/Day3Input.txt"
+val sides = { for (line <- Source.fromFile(fileName).getLines)
+    yield line.trim.split("  ")
+    .map(_.trim)
+    .filter(_ != "")
+    .map(_.toInt) } toList
+
+// Part 1
+val triangles = sides.map(x => Triangle(x(0), x(1), x(2)))
+val count = triangles.count(_.IsTriangle)
+count
+
+// Part 2
+val grouped = sides.flatMap(x => x).zipWithIndex.groupBy(_._2 % 3).map(_._2)
+  .flatMap(z => z).map(_._1).toList
+
+val data = { for (i <- 0 to grouped.length - 3 by 3)
+  yield Triangle(grouped(i), grouped(i + 1), grouped(i + 2)) } toList
+val newCount = data.count(_.IsTriangle())
+newCount
+
+```
