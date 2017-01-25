@@ -11,7 +11,7 @@ title                    : "Catch the dot"
 title_separator          : "-"
 name                     : "Pawan Mishra"
 description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://catch29.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -66,7 +66,7 @@ google_ad_slot           :
 # Site Author
 author:
   name             : "Pawan Mishra"
-  avatar           : "profile_pic.jpg"
+  avatar           : "images/profile_pic.jpg"
   bio              : ""
   location         : "Austin,Tx"
   email            : rk.pawan@gmail.com
@@ -151,7 +151,7 @@ kramdown:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 

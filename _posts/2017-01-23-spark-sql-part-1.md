@@ -120,7 +120,9 @@ Next, lets add Spark dependencies. We will be adding following Spark dependencie
 
 Open up **Project Structure** window(File -> Project Structure) and add above mentioned dependencies by searching & adding them in _**Module -> dependencies**_ tab. Screenshot below.
 
-{% include figure image_path="/assets/images/IntelliJ_Dependencies.png" alt="IntelliJ Dependencies" caption="Adding IntelliJ Dependencies" %}
+{% include figure image_path="/assets/images/IntelliJ_Dependencies.png" alt="IntelliJ Dependencies" caption="Spark Dependencies" %}
+
+
 
 
 
