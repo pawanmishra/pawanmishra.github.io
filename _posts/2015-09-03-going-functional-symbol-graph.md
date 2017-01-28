@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: Going Functional - Symbol Graph in F#
 tags: [F#, Algorithms]
 ---

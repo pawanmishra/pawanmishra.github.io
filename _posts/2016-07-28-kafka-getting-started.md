@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: Kafka - Getting Started
 tags: [Kafka, Java]
 excerpt: In this blog post, I am going to outline the steps required for setting up Kafka in your local development machine.

@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: MEANT Stack - Part1
 tags: [vscode, node, typescript, mongodb, angularjs]
 ---

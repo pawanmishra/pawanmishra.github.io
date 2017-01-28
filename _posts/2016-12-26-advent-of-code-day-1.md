@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: Advent Of Code 2016
 tags: [Scala]
 excerpt: I recently came across this site called [Advent Of Code](http://adventofcode.com/) which lists set of problems in increasing order of complexity. If you are like me, trying to learn new programming language(in my case it's Scala), then solving handful of such problems will greatly expedite your learning process.

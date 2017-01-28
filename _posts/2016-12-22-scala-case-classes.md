@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: Scala Topics - Case Classes
 tags: [Scala]
 excerpt: In this blog post, I am going to cover Scala's [Case](http://docs.scala-lang.org/tutorials/tour/case-classes) class functionality. Scala being functional programming language, introduces new programming constructs like Case classes, traits & other features to support & enhance functional programming experience. 

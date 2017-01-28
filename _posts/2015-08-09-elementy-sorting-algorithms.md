@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: Going Functional - Elementry Sorting Algorithms in F#
 tags: [F#, Algorithms]
 ---

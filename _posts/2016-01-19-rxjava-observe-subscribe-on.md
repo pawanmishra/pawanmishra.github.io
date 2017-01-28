@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: RxJava - SubscribeOn & ObserveOn
 tags: [RxJava, Java]
 excerpt: In this blog post we will cover the two most important aspect of RxJava programming which is configuring observeOn & subscribeOn listeners.

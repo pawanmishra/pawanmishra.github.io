@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: Going Functional - Breadth & Depth First Search in F#
 tags: [F#, Algorithms]
 ---

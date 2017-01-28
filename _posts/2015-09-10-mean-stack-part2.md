@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: MEANT Stack Part2 - Node & Mongoose SetUp
 tags: [vscode, node, typescript, mongodb, angularjs]
 ---
