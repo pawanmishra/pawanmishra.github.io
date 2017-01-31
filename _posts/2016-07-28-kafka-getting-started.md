@@ -25,7 +25,7 @@ In this blog post, I am going to outline the steps required for setting up Kafka
 *   Unzip the content in directory of your choice. Once unzipped, navigate to the ~/zookeeper/conf/ directory.
 *   Inside conf/ directory, create file called : zoo.cfg and add following content to it. You can most of the content inside zoo_sample.cfg inside the ~/conf/ directory.
 
-```
+```shell
 # The number of milliseconds of each tick  
 tickTime=2000  
 # The number of ticks that the initial  
@@ -61,7 +61,7 @@ It’s time to start zookeeper server & verify that things are working fine. Exe
 
 You should expect following output :
 
-```
+```shell
 ZooKeeper JMX enabled by default  
 Using config: /Users/mishrapaw/Documents/mykafka/zookeeper-3.4.8/bin/../conf/zoo.cfg  
 Starting zookeeper ... STARTED
@@ -69,7 +69,7 @@ Starting zookeeper ... STARTED
 
 Next in command prompt, enter command : **$ telnet localhost 2181.** Once prompter for further command type : **$ srvr .** Expected output
 
-```
+```shell
 pawan:$ telnet localhost 2181  
 Trying ::1...  
 Connected to localhost.  
@@ -95,7 +95,7 @@ This confirms that our zookeeper is up & running and is accessible for other ser
 
 [Kafka](http://kafka.apache.org) setup similar to zookeeper involves downloading small compressed binaries from [here](http://kafka.apache.org) & unzipping it in location of your choice. Once unzipped, the root directory will contain following items :
 
-```
+```shell
 MishraPaw-01-MBR:kafka_2.11-0.9.0.1 mishrapaw$ ls  
 LICENSE        NOTICE        bin        config        libs        logs        site-docs
 ```
@@ -112,7 +112,7 @@ Setting up broker involves creating server.properties file & initializing some o
 
 ##### server-1.properties
 
-```
+```shell
 # The id of the broker. This must be set to a unique integer for each broker.  
 broker.id=1  
 
@@ -137,7 +137,7 @@ Broker.id, port, listeners & log.dirs values must be unique for every broker ins
 
 ##### server-2.properties
 
-```
+```shell
 # The id of the broker. This must be set to a unique integer for each broker.  
 broker.id=2  
 listeners=PLAINTEXT://:9091  
@@ -162,7 +162,7 @@ The properties file also contains zookeeper information. By default zookeeper.co
 
 Once properties files are ready, then we can start the broker instances. From command line, execute the following command for starting two broker instances:
 
-```
+```shell
 # bin directory is the one which contains various kakfa shell scripts  
 $./bin/kafka-server-start.sh config/server-1.properties &  
 $./bin/kafka-server-start.sh config/server-2.properties &
@@ -175,19 +175,19 @@ With Kafka brokers running fine, its time to setup topics & partitions.
 
 In Kafka, messages produced by consumer are written to what is known as topics. Topics are similar to queues in rabbitmq. Topics provide granularity or partitioning based on the type of data. Say for e.g. if you are setting up system for processing college related information, then you can defined one topic for students related data, one for teachers related data etc. Once you have created a topic, you then define number of partitions for that topic. By default topic will have one partition but you can increase the number of partitions. Partitions help you in controlling/segregating data coming from different producers.  If for e.g. you have two producers producing data for a given topic then you can assign one producer to write data to one partition & make the other producer write data to another. Let’s go ahead & create a topic with two partitions. Run the following command for creating topic :
 
-```
+```shell
 mishrapaw$ ./bin/kafka-topics.sh --create --topic blogTest --partitions 2 --zookeeper localhost:2181 --replication-factor 1
 ```
 
 The above command creates a topic called “blogTest” with two partition. I have avoided any replication related activity by setting replication-factor to 1\. Replication-factor is must for any production level setup & you can read more about it in official kafka page. If you run the following command, you can get details about the topic :
 
-```
+```shell
 mishrapaw$ ./bin/kafka-topics.sh --describe --topic blogTest --zookeeper localhost:2181
 ```
 
 #### Output
 ---
-```
+```shell
 Topic:blogTest    PartitionCount:2    ReplicationFactor:1    Configs:  
     Topic: blogTest    Partition: 0    Leader: 1    Replicas: 1    Isr: 1  
     Topic: blogTest    Partition: 1    Leader: 2    Replicas: 2    Isr: 2
@@ -206,13 +206,13 @@ You can create producers & consumers programmatically via Java API but for this 
 
 Start the console consumer in a new console window with the following command & leave the consumer running.
 
-```
+```shell
 mishrapaw$ ./bin/kafka-console-consumer.sh --topic blogTest --zookeeper localhost:2181
 ```
 
 Since we are writing nothing to the topic, we will see nothing once the consumer starts. It’s time to create our producers & start producing data. Create two producers in different console windows using following command :
 
-```
+```shell
 Console-1  
 mishrapaw$ ./bin/kafka-console-producer.sh --broker-list localhost:9091,localhost:9092 --topic blogTest  
 
