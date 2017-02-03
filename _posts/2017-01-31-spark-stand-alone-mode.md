@@ -207,3 +207,5 @@ $SPARK_HOME/bin/spark-submit --master spark://127.0.0.1:7077 --class SparkSqlRun
 Running the above command will generate similar output as we saw in previous post. Once the application is submitted, we can also check its status in Spark Master UI. Screenshot:
 
 {% include figure image_path="/assets/images/spark_ui_with_application.png" alt="Spark Master UI With Application Details" caption="Spark Master UI With Application Details" %}
+
+Running Spark in local mode(directly from IDE or via standalone cluster mode) is really helpful in expediting the development process. There is lot more to Spark like how to provide schema, debugging running app & performance considerations. All this & more in upcoming posts. Till then enjoy!!
