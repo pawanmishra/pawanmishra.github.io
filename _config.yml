@@ -27,7 +27,7 @@ comments:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
     num_posts            : 10 # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : "dark" # "light" (default), "dark"
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
@@ -67,7 +67,7 @@ google_ad_slot           :
 author:
   name             : "Pawan Mishra"
   avatar           : "images/profile_pic.jpg"
-  bio              : ""
+  bio              : "Passionate & pragmatic programmer with 9+ years of experience in building applications of varied complexities."
   location         : "Austin,Tx"
   email            : rk.pawan@gmail.com
   uri              :
@@ -85,10 +85,10 @@ author:
   linkedin         : "rkpawan"
   pinterest        :
   soundcloud       :
-  stackoverflow    : "242172/pawan-mishra"
+  stackoverflow    : # "242172/pawan-mishra"
   steam            :
   tumblr           :
-  twitter          : "rkpawan"
+  twitter          : # "rkpawan"
   vine             :
   weibo            :
   xing             :
@@ -223,6 +223,7 @@ defaults:
       path: ""
       type: posts
     values:
+      read_time: true
       author_profile: true
       comments: true
       share: true
