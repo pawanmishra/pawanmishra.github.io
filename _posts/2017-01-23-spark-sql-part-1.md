@@ -2,6 +2,7 @@
 layout: splash
 title: SparkSQL Getting Started
 tags: [Scala, Spark]
+published: false
 excerpt: In this blog post, I am going to explain you the steps required for configuring Spark in your machine. I will also present simple SparkSQL program which runs SQL query against sample csv file.
 ---
 {% include base_path %}
