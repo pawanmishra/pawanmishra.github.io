@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: MEANT Stack Part4 - Front End Implementation - 2
 tags: [vscode, node, typescript, mongodb, angularjs]
 exceprt: In this part we will implement the html page used for registering the teams.

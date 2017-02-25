@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Postgres and Json - Part1
 tags: [postgres, jsonb]
 excerpt: In this blog post, we are going to look into the various **json** related functions available in postgres database specific to json creation.

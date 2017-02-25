@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Setting date & time in Linux VM
 tags: [Random]
 excerpt: In this blog post, I will provide you steps for setting date & time in Linux VM through command prompt.

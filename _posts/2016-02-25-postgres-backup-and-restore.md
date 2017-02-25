@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Postgres - BackUp & Restore
 tags: [postgresql]
 excerpt: In this blog post, I am going to share with you all the commands required for taking database back-up & restoring database from those back-up files. 

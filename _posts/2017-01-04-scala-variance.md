@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Scala Topics - Covariance & Contravariance
 tags: [Scala]
 excerpt: In this blog post, I am going to explain you the difference between covariance & contra-variance. If you are not familiar with these terms then let me tell you that its related to the way type parameters are handled(more on this) when defining generic types or methods.

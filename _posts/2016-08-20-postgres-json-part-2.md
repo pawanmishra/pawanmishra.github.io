@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Postgres and Json - Part2
 tags: [postgres, jsonb]
 excerpt: In this blog post, we are going to explore some of the **json** related operators & functions specific to filtering & processing of json based data.

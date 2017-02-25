@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: MEANT Stack Part3 - Front End Implementation - 1
 tags: [vscode, node, typescript, mongodb, angularjs]
 excerpt: In this and the next module, we will concentrate on building front-end of our application using [AngularJs](https://angularjs.org/), [TypeScript](http://www.typescriptlang.org/) & [Bootstrap](http://getbootstrap.com/).

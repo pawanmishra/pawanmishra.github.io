@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Is Screen Saver running or not?
 tags: [C#]
 ---

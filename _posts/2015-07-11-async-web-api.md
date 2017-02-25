@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Async Web Api Performance
 tags: [C#]
 ---

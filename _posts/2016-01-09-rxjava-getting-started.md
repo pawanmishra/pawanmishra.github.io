@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: RxJava - Getting Started
 tags: [RxJava, Java]
 excerpt: In this blog post, I am going to explain you the basics of [RxJava](https://github.com/ReactiveX/rxjava) by walking you through one of the sample application that I have built using [RxJava](https://github.com/ReactiveX/rxjava) framework. 

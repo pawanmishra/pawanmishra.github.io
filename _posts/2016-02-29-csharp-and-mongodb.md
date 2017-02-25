@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Working with MongoDB using F# & C#
 tags: [C#, F#, mongodb]
 excerpt: In this blog post I am going to show you how you can access and perform CRUD operation from C# based application against [MongoDb](https://www.mongodb.org/). In our application, we are going to persist & read feed data from underlying [mongodb](https://www.mongodb.org/) database.

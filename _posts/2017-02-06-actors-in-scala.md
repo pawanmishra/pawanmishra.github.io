@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Scala Topics - Actor Based Programming  
 tags: [Akka, Scala, Spark]
 excerpt: In this blog post, I am going to use Akka's Actor framework for implementing code for scoring Bowling game. Before getting into the code, I will provide quick introduction to Actors & components involved in actor based programming.

@@ -1,5 +1,5 @@
 ---
-layout: splash
+layout: single
 title: Going Functional - Stack Implementation in F#
 tags: [F#, Algorithms]
 ---
