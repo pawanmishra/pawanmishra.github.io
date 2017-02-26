@@ -81,7 +81,7 @@ Sample output from calling _sqlPersonDF.show()_.
 
 ```json
 root
- |-- PatientRefKey: string (nullable = true)
+ |-- PersonKey: string (nullable = true)
  |-- IdentifierName: string (nullable = false)
  |-- Extension: string (nullable = true)
  |-- RecordStatus: string (nullable = false)
@@ -206,18 +206,14 @@ object SchemaInPlay {
       .getOrCreate()
 
     import spark.implicits._
-
     ........
     ........
-
     sqlPatientDF.printSchema()
 
     val patientRdd = sqlPatientDF.map(x => Row(x(0).toString.toInt, x(1), x(2).toString.toInt, x(3)))(RowEncoder(schema))
 
     patientRdd.printSchema()
-
     patientRdd.foreach(printPatients(_))
-
     spark.stop()
   }
 
