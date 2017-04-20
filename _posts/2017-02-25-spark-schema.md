@@ -5,6 +5,7 @@ tags: [Scala, Spark]
 excerpt: In this blog post, we will see how to apply schema to SparkSQL DataFrames. We will also see, how to use Scala's implicits for converting DataFrame into strongly typed entities.
 ---
 {% include base_path %}
+{% include toc %}
 
 In one of my previous [post]({% post_url 2017-01-23-spark-sql-part-1 %}) on [SparkSQL](http://spark.apache.org/sql/), we saw how [SparkSQL](http://spark.apache.org/sql/) can be used to run SQL queries against csv files. For ease of reference, I have copied the code snippet below :
 
