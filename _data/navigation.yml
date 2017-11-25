@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "About Me"
-    url: /about/
+  # - title: "About Me"
+  #   url: /about/
 
 content:
   - title: "Posts By"
