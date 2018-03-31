@@ -5,6 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
+remote_theme             : "mmistakes/so-simple-theme"
 minimal_mistakes_skin    : "mint" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -86,7 +87,7 @@ author:
   name             : "Pawan Mishra"
   avatar           : "images/profile_pic.jpg"
   bio              : "Software developer with 10+ years of experience in building wide range of applications in healthcare and finance domain."
-  location         : "Austin,Tx"
+  location         : "Austin, Tx"
   email            : rk.pawan@gmail.com
   uri              :
   bitbucket        :
@@ -185,6 +186,7 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins (previously gems:)
 plugins:
+  - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
@@ -193,6 +195,7 @@ plugins:
 
 # mimic GitHub Pages with --safe
 whitelist:
+  - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
