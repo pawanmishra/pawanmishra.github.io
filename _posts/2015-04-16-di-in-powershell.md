@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Dependency Injection in PowerShell
 tags: [C#, PowerShell]
 ---

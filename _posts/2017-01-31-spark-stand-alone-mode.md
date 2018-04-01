@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Running Spark App In Standalone Cluster Mode
 tags: [Scala, Spark]
 excerpt: In this blog post, I will explain the process of running Spark application against locally running standlaone cluster.

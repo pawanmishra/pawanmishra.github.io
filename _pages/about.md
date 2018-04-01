@@ -1,5 +1,4 @@
 ---
-layout: single
 permalink: /about/
 ---
 I am pragmatic and passionate developer with more than 8.5 years of hands-on experience in developing a wide range of application types in healthcare & financial domain. I have experience in working with several architecture approaches including MVC and Domain Driven Design. I am fully conscious of current and former software engineering methodologies and practices, allowing for the adoption and continuous monitoring of the best approach for working in a team to solve a problem. Some of my current professional skills include **Java, C#, ASP.NET MVC, ASP.NET WebApi, HTML/CSS, Jquery, SQLServer**. I also have exposure to **F#, Node.js, AngularJs, SignalR and JavaScript**.

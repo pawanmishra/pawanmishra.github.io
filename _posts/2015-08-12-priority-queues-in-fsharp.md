@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Going Functional - Priority Queues F#
 tags: [F#, Algorithms]
 ---

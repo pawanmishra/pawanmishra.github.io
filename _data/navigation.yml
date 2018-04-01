@@ -1,12 +1,14 @@
-# main links
-main:
-  # - title: "About Me"
-  #   url: /about/
+# Sample site navigation links
 
-content:
-  - title: "Posts By"
-    children:
-      - title: "Year"
-        url: /year-archive/
-      - title: "Tags"
-        url: /tags/
+#- title: Home
+#  url: /
+- title: Posts
+  url: /posts/
+# - title: Categories
+#  url: /categories/
+- title: Tags
+  url: /tags/
+# - title: Recipes
+#   url: /recipes/
+# - title: Search
+#   url: /search/

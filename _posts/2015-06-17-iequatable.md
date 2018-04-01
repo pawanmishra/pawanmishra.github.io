@@ -1,5 +1,4 @@
 ---
-layout: single
 title: IEquatable Interface
 tags: [C#]
 ---

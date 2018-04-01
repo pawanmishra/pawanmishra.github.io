@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Hive - How to easily test custom auth Jar?
 tags: [Hive]
 excerpt: In this post, I will share the steps you can take to easily test your custom hive authentication implementation.

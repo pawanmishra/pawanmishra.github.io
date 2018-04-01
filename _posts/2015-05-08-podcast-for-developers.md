@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Podcast for developers
 tags: [C#]
 ---

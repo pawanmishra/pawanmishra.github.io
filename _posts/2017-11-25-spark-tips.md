@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Spark Recipes
 tags: [Scala, Spark]
 excerpt: If we ignore the complexities of running spark applications then getting up-to speed with spark programming api is relatively straight forward. However like any other programming api, spark too contains some elements that aren't that obvious to figure out. In this post, I will share some not so obvious things about spark programming api.

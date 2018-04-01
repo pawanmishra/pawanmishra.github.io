@@ -1,5 +1,4 @@
 ---
-layout: single
 title: AOP in Java
 tags: [Java, AspectJ]
 excerpt: In this blog post, I am going to use an open source library called [**jcabi-aspects**](http://aspects.jcabi.com/index.html) for implementing ***loggable*** aspect.   

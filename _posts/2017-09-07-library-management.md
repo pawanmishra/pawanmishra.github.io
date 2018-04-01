@@ -1,10 +1,8 @@
 ---
-layout: single
 title: Using Symbolic Links to Manage Libraries
 tags: [Software]
 excerpt: This post is quick tutorial on how you can easily manage & switch between different versions of programming libraries that you have configured in your machine with the help of symbolic links.
 ---
-
 {% include base_path %}
 
 This post is a quick tutorial on how you can easily manage & switch between different versions of libraries that you have configured in your machine with the help of symbolic links. I am currently working on Apache Spark based project & I have to download & configure not only spark but other libraries like hadoop, zeppelin & hive in my machine. These libraries are frequently released with major &minor updates. 

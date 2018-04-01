@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Going Functional - Merge & Quick Sort in F#
 tags: [F#, Algorithms]
 ---

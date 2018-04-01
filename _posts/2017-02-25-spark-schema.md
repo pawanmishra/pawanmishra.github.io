@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Working with schema in SparkSQL
 tags: [Scala, Spark]
 excerpt: In this blog post, we will see how to apply schema to SparkSQL DataFrames. We will also see, how to use Scala's implicits for converting DataFrame into strongly typed entities.

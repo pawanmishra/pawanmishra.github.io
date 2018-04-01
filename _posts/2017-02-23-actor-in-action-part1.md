@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Unhandled & Dead Messages in Akka  
 tags: [Akka, Scala]
 excerpt: In this blog post, we are going to look into two special cases of message delivery & its handling by the akka framework. First case involves sending invalid message & second case involves sending messages to dead actors. 

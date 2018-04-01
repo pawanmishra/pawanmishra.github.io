@@ -1,5 +1,4 @@
 ---
-layout: single
 title: SSH Config
 tags: [Programming]
 ---

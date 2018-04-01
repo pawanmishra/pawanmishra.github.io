@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Laptop Inauguration
 tags: [C#]
 ---

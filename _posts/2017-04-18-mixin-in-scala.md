@@ -1,5 +1,4 @@
 ---
-layout: single
 title: Mixin in Scala
 tags: [Scala]
 excerpt: In this blog post, we will look into how Scala provides support for mixins via traits. Mixin allow classes to provide functionalities to other classes without making the other classes inherit from them.
