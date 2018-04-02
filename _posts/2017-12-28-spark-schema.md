@@ -6,7 +6,7 @@ excerpt: In this blog post, we will see how to apply schema to SparkSQL DataFram
 {% include base_path %}
 {% include toc %}
 
-In one of my previous [post]({% post_url 2017-01-23-spark-sql-part-1 %}) on [SparkSQL](http://spark.apache.org/sql/), we saw how [SparkSQL](http://spark.apache.org/sql/) can be used to run SQL queries against csv files. For ease of reference, I have copied the code snippet below :
+In one of my previous [post]({% post_url 2017-12-23-spark-sql-part-1 %}) on [SparkSQL](http://spark.apache.org/sql/), we saw how [SparkSQL](http://spark.apache.org/sql/) can be used to run SQL queries against csv files. For ease of reference, I have copied the code snippet below :
 
 > You can find the working code in my personal github repository here : [SparkPlayGround](https://github.com/pawanmishra/SparkPlayGround)
 

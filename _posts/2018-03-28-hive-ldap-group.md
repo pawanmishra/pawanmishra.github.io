@@ -4,6 +4,7 @@ title: Hive & Ldap Authentication
 tags: [Hive]
 excerpt: In this post, I will cover the steps required to properly configure Ldap & corresponding group level authentication in [hive](https://hive.apache.org/).
 ---
+{% include base_path %}
 {% include toc %}
 
 In this post, I will cover the steps required to properly configure Ldap authentication & corresponding group level filtering in [hive](https://hive.apache.org/). I was recently trying to implement group level authentication & the information available on [hive](https://hive.apache.org/) [wiki](https://cwiki.apache.org/confluence/display/Hive/User+and+Group+Filter+Support+with+LDAP+Atn+Provider+in+HiveServer2) wasn't sufficient enough. Thats when I decided to clone the hive [repo](https://github.com/apache/hive/tree/master/service/src/java/org/apache/hive/service/auth/ldap) & go through the code myself. The information presented in this post is derived directly from the actual [hive](https://hive.apache.org/) codebase. 

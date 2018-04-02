@@ -6,7 +6,7 @@ excerpt: In this blog post, I will explain the process of running Spark applicat
 {% include base_path %}
 {% include toc %}
 
-In the previous [post]({% post_url 2017-01-23-spark-sql-part-1 %}), I presented a simple SparkSQL app & executed the app directly from the IDE & later by submitting the app via **spark-submit** script. Spark supports multiple modes of execution aka cluster types. In order to better understand cluster types, we first have to take a quick look at Spark's core runtime components.
+In the previous [post]({% post_url 2017-12-23-spark-sql-part-1 %}), I presented a simple SparkSQL app & executed the app directly from the IDE & later by submitting the app via **spark-submit** script. Spark supports multiple modes of execution aka cluster types. In order to better understand cluster types, we first have to take a quick look at Spark's core runtime components.
 
 ### Spark components
 ---
@@ -130,7 +130,7 @@ This finishes the setup. Next we will re-use our previously created SparkSQL app
 ### Running the App
 ---
 
-In the previous [post]({% post_url 2017-01-23-spark-sql-part-1 %}), we implemented the simple SparkSQL program. We will re-use the same application with one minor change in code.
+In the previous [post]({% post_url 2017-12-23-spark-sql-part-1 %}), we implemented the simple SparkSQL program. We will re-use the same application with one minor change in code.
 
 ```scala
 def main(args: Array[String]) {
@@ -188,7 +188,7 @@ def main(args: Array[String]) {
   }
 ```
 
-Remove this line **.master("local[*]")** from the above code & re-build the jar. Steps for building the jar was covered in the previous [post]({% post_url 2017-01-23-spark-sql-part-1 %}). Setting master to _local[]_, causes the Spark app to run in local mode i.e. the spark master & the worker are all running inside the client application JVM. Instead we are going to submit our application using **spark-submit** script against the master which we explicitly started.
+Remove this line **.master("local[*]")** from the above code & re-build the jar. Steps for building the jar was covered in the previous [post]({% post_url 2017-12-23-spark-sql-part-1 %}). Setting master to _local[]_, causes the Spark app to run in local mode i.e. the spark master & the worker are all running inside the client application JVM. Instead we are going to submit our application using **spark-submit** script against the master which we explicitly started.
 
 #### spark-submit 
 ---
