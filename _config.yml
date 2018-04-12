@@ -21,6 +21,7 @@ words_per_minute         : 200
 read_time                : true
 disqus:
     shortname            : "pawanmishra-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+google_analytics         : UA-117414808-1
 
 google_fonts:
   - name: "Source Sans Pro"
