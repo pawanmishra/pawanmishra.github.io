@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hive & Ldap Authentication
-tags: [Hive]
+tags: [Hive, LDAP]
 excerpt: In this post, I will cover the steps required to properly configure Ldap & corresponding group level authentication in [hive](https://hive.apache.org/).
 ---
 {% include base_path %}
