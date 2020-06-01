@@ -180,11 +180,15 @@ case class RolledUpSales(region: String, orderPriority: String, unitsSold: Integ
 
 **Explanation**
 
-* **1** - I am using a bash script for invoking the spark-submit command. Most of the spark related configs are present in that bash script.
-* **2** - Read the csv files and limit the dataframe to columns that we are interested in(or present in the Sales case class).
-* **3** - Group the _Sales_ dataframe by the region key and then invoke the _**flatMapGroups**_ function against it. In the _**flatMapGroups**_ function, we are passing the group by key(region) and an iterator containing the records that belong to that key. The key could be anything i.e. simple variable or multi-field case class.
-* **4** - In the _**rollUpSales**_ function, we first sort the dataset by the _OrderDate_
-* **5** - Most of the magic happens in this function. We start with the first element. Divide the collection into two sets i.e. set containing similar OrderPriority and another set containing remaining elements. We create a case class called _**record**_ containing the output for the current iteration. Repeat the process until elements are present in the collection. Finally, return the accumlated resultset.
+**1** - I am using a bash script for invoking the spark-submit command. Most of the spark related configs are present in that bash script.
+
+**2** - Read the csv files and limit the dataframe to columns that we are interested in(or present in the Sales case class).
+
+**3** - Group the _Sales_ dataframe by the region key and then invoke the _**flatMapGroups**_ function against it. In the _**flatMapGroups**_ function, we are passing the group by key(region) and an iterator containing the records that belong to that key. The key could be anything i.e. simple variable or multi-field case class.
+
+**4** - In the _**rollUpSales**_ function, we first sort the dataset by the _OrderDate_
+
+**5** - Most of the magic happens in this function. We start with the first element. Divide the collection into two sets i.e. set containing similar OrderPriority and another set containing remaining elements. We create a case class called _**record**_ containing the output for the current iteration. Repeat the process until elements are present in the collection. Finally, return the accumlated resultset.
 
 **Output**
 
