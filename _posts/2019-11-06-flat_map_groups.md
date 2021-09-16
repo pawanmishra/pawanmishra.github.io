@@ -109,7 +109,7 @@ val sales = session
         $"UnitsSold".as("unitsSold")).as[Sales]
 ```
 
-Finally, it's time to implement the core roll-up logic using the [**FlatMapGroup**](https://spark.apache.org/docs/2.2.1/api/java/org/apache/spark/sql/KeyValueGroupedDataset.html) api.
+Next, implement the core roll-up logic using the [**FlatMapGroup**](https://spark.apache.org/docs/2.2.1/api/java/org/apache/spark/sql/KeyValueGroupedDataset.html) api.
 
 ```scala
 package Demo
