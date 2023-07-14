@@ -1,0 +1,11 @@
+---
+layout: post
+title: Test post
+tags: [Scala]
+excerpt: In this short blog post, I will give an example wherein we will see how with the help of Scala trait's we can mock external dependencies.
+---
+
+{% include base_path %}
+{% include toc %}
+
+In my current Scala based project, we have code that interacts with external resources like writing data to AWS S3 bucket or extracting information from Oracle database, etc. Back During my .Net & Java programming days, we used dependency injection & mocking frameworks for mocking external dependencies in our unit tests.
