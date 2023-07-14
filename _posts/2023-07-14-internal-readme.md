@@ -2,6 +2,7 @@
 layout: post
 title: Test post
 tags: [Scala]
+date: 9999-12-31
 excerpt: In this short blog post, I will give an example wherein we will see how with the help of Scala trait's we can mock external dependencies.
 ---
 
