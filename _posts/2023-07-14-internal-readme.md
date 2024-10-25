@@ -36,3 +36,43 @@ sudo apt install ruby-bundler
 ```
 
 Installing ruby-bundler should install ruby as well. By default it will install the latest version of ruby.
+
+Helpful links 
+
+[so-simple-theme](https://talk.jekyllrb.com/t/page-build-fail-on-updated-so-simple-theme/3515/2)
+
+#### Using Docker
+---
+
+Finally got docker based setup working. Follow the below steps -
+
+* Install Docker desktop. On windows, for WSL to work, enable following settings - 
+> Use the WSL 2 based engine (Windows Home can only run the WSL 2 backend) &&
+> Add the *.docker.internal names to the host's etc/hosts file (Requires password)
+
+* Once docker is installed and running, go to the repo, and execute the following commands -
+
+```
+-- This command creates the image
+docker build -t pawan_blog_ruby .
+
+-- This command runs the container
+docker run --rm -p 4000:4000/tcp pawan_blog_ruby:latest
+```
+
+Output of successful container run should look like this -
+```
+Configuration file: /blog/_config.yml
+            Source: /blog
+       Destination: /blog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+      Remote Theme: Using theme mmistakes/so-simple-theme
+       Jekyll Feed: Generating feed for posts
+                    done in 2.649 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+```
+
+Finally, from host machine, enter either localhost:4000 or 127.0.0.1:4000 and there you have it.
+
+
