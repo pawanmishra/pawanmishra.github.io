@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : ""
+title                    : "Catch the dot"
 logo                     : "assets/images/site-logo.png"
 title_separator          : "-"
 remote_theme             : "mmistakes/so-simple-theme@3.2.0"
