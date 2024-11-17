@@ -3,7 +3,7 @@ layout: post
 title: LLM Word Cloud
 tags: [LLM, AI]
 date: 2024-11-16
-excerpt: Word cloud of 
+excerpt: A word cloud of key concepts crucial to understanding LLMs. 
 ---
 
 I have [Oreilly](https://learning.oreilly.com/home/) subscription. There has been a sudden influx of books, videos, and other learning material on LLM and AI. To improve my understanding of AI & LLM, I have shortlisted following books - 
