@@ -2,7 +2,7 @@
 layout: post
 title: LLM Word Cloud
 tags: [LLM, AI]
-date: 2024-11-16
+date: 9999-11-16
 excerpt: A word cloud of key concepts crucial to understanding LLMs. 
 ---
 
