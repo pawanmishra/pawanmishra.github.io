@@ -13,7 +13,7 @@ At a high level, we will be going through the following steps -
 * Deploy model in Azure foundry. Once Azure OpenAI service is up and running, head to Azure foundry and deploy model of your choice.
 * Finally, use Langchain's Azure OpenAI api for interacting with the model(deployed in Foundry) via the api endpoint.
 
-#### Deploy Azure OpenAI Service
+### Deploy Azure OpenAI Service
 
 To keep things simple, we are going to spin up the service directly in the portal. We are also going to opt for the most straightforward options like no networking related restrictions, etc. Below are the screenshots of the [Azure's OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) service setup process. We first have to define a resource group and provide meanigful resource name, next make network related selections.
 
@@ -33,7 +33,7 @@ Clicking on the endpoints link, will take us to the next page, wherein we can se
 
 Make a note of the api endpoint and the keys(keep it safe and secure).
 
-#### Deploy Models in Foundry
+### Deploy Models in Foundry
 
 After successfully deploying the [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) service, next step we have to take is to deploy an llm model in [Azure Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/what-is-ai-studio). In the Azure's OpenAI service page, click on the Foundry link. This will take you to the [Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/what-is-ai-studio) portal.
 
@@ -45,7 +45,7 @@ On this page, click on the "Create new deployment" link. This will pop-up anothe
 
 Select model that you want and click on deploy. For this blog post, I have deployed the gpt-3.5-turbo model.
 
-#### Azure OpenAI via Langchain
+### Azure OpenAI via Langchain
 
 [Langchain](https://python.langchain.com/docs/introduction/) is a well know framework that provides api's for interacting with well known llm providers. In the below example, I am going to use Langchain's AzureOpenAI api endpoints for interacting with the Azure's OpenAI service we have deployed in the previous steps.
 
