@@ -1,9 +1,11 @@
 ---
 layout: post
-title: 
+title: Implement a bot using LLM and RAG
 tags: [LLM, AI, Azure, OpenAI, Scala, RAG]
 excerpt: Step-by-step guide on how I leveraged LLM and RAG to implement a bot in Scala.
 ---
+{% include base_path %}
+{% include toc %}
 
 ### What is Scalatron?
 ---
@@ -70,3 +72,188 @@ It is highly likely that if we ask our llm chat model(gpt-4.1) a Scalatron botwa
 This is where RAG and more specifically the RAG's _knowledge base_ comes into play. With RAG, when we ask a question, RAG first looks for relevant information in the associated knowledge base, extracts the relevent information and passes it on to the llm as query's context. LLM then uses the additional information available in the context to formulate its response. For e.g. if I ask the same question to an RAG based llm, whose knowledge base is made up of Scalatron specific information, then I get the correct response.
 
 {% include figure image_path="/assets/images/llm_knows.png" alt="LLM Knows" caption="LLM Knows" %}
+
+Let's look into how to build our RAG's knowledgebase.
+
+#### RAG Knowledge Base
+---
+
+In [RagFlow](https://github.com/infiniflow/ragflow?tab=readme-ov-file#-what-is-ragflow), we can create a _Knowledge Base_ by uploading documents. Documents that contain information related to the problem we are trying to solve. In our case, Scalatron repo includes multiple documents that explain the rules of the game, protocol, has sample implementations, etc. For this excercise, I decided to include the following documents - 
+
+* [Scalatron Tutorial](https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Tutorial.md)
+* [Scalatron Protocol](https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Protocol.md)
+* [Scalatron Rules](https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Game%20Rules.md)
+* [Complex Bot Implementation](https://github.com/scalatron/scalatron/blob/master/Scalatron/samples/Example%20Bot%2001%20-%20Reference/src/Bot.scala)
+
+{% include figure image_path="/assets/images/rag_knowledgebase.png" alt="RAG Knowledgebase" caption="RAG Knowledgebase" %}
+
+Above files are small markdown documents. To construct the knowledge base, RAG framework has to parse and chunk the documents and store the information in a vector store. Once the knowledge base was ready, I started a chat session in [RagFlow](https://github.com/infiniflow/ragflow?tab=readme-ov-file#-what-is-ragflow), instructed it to use the above knowledge base and started asking Scalatron specific questions. 
+
+#### Moment of truth
+---
+
+I was really impressed, how much better the llm responses were once RAG's knowledge base came into picture. It was as if, llm knew in & out of this game. Every response was to-the-point and accurate. Lets see some examples. To get to the final working model, I had to iterate over a couple of times to get the llm to understand what bot strategry I had in mind. 
+
+* **Question** - Asking LLM to list the main entities of the Scalatron bot game.
+{% include figure image_path="/assets/images/list_scalatron_entities.png" alt="Scalatron Entities" caption="Scalatron Entities" %}
+
+As we can see, in the above image, llm response is also annotated with the knowledge base article.
+
+* **Question** - does the Scalatron bot war game tells you about the size of the arena i.e. X, Y?
+{% include figure image_path="/assets/images/arena_size.png" alt="Scalatron Arena Size" caption="Scalatron Arena Size" %}
+
+Time for some coding related question answers.
+
+* **Question** - we need a function inside cell class that wraps up if the bot ends up on the edge of the arena. Wrap it back on the other side of the arena.
+{% include figure image_path="/assets/images/wrap_cell.png" alt="Scalatron Wrap cell" caption="Scalatron Wrap cell" %}
+
+* **Question** - summarize the Scalatron input protocol? How to correctly parse the input and what the return response should look like?
+{% include figure image_path="/assets/images/scalatron_input_response.png" alt="Scalatron Input Response" caption="Scalatron Input Response" %}
+
+After this I asked few more questions related to input, about the characters, etc. 
+
+Finally, I asked llm to generate code for my bot. I had to present my bot's strategy as a question. So here it is - _**Give master bot center location, it's view in terms of the View class, write code that finds nearby Fluppet or Zugar(whichever is nearby) and move the master bot in that direction. If no food available then move randomly in any direction, while avoiding toxifera and snorg. Avoid walls as well. If the bot gets stuck against the wall. Update the code to handle wall as well?**_
+
+**Code** - 
+
+```scala
+// this is the source code for your bot - have fun!
+
+import scala.util.Random
+
+class ControlFunctionFactory {
+    def create = new Bot().respond _
+}
+
+class Bot {
+    
+    // All possible move directions (excluding staying put):
+    val directions8 =
+        Seq(XY(-1,-1), XY(0,-1), XY(1,-1),
+            XY(-1,0),            XY(1,0),
+            XY(-1,1), XY(0,1), XY(1,1)).filterNot(_ == XY(0,0))
+    
+    def isSafe(cellContent: Char): Boolean =
+        cellContent != 'p' && cellContent != 'b' && cellContent != 'W'
+
+    def safeDirections(view: View): Seq[XY] =
+        directions8.filter(dir => isSafe(view(dir)))
+    
+    def respond(input: String) = {
+        val paramMapping = parseInput(input)
+        val opCode = paramMapping._1
+        val result = opCode match {
+            case "React" => {
+                val viewString = paramMapping._2("view")
+                val view = View(viewString)
+                val food = findNearestFood(view)
+                food match {
+                 case Some(targetDelta) =>
+                   // Move one step towards targetDelta:
+                   val moveDelta =
+                     XY(targetDelta.x.signum, targetDelta.y.signum)
+                     
+                    // Only move if that direction is safe!
+                   if(isSafe(view(moveDelta))) {
+                     s"Move(direction=${moveDelta})" // e.g., Move(direction=1:-1)
+                   } else {
+                     // If direct path is blocked by hazard or wall,
+                     // pick a random safe direction instead.
+                     val safeDirs = safeDirections(view)
+                     if(safeDirs.nonEmpty){
+                       val chosenDir = Random.shuffle(safeDirs).head
+                       s"Move(direction=${chosenDir})"
+                     } else {
+                       "Status(text=No safe moves)"
+                     }
+                   }    
+                
+                   //s"Move(direction=${moveDelta})" // e.g., Move(direction=1:-1)
+                
+                 case None =>
+                   // No food found; pick a random safe direction:
+                   val safeDirs = safeDirections(view)
+                   
+                   if(safeDirs.nonEmpty){
+                     val chosenDir = Random.shuffle(safeDirs).head
+                     s"Move(direction=${chosenDir})"
+                   } else {
+                     "Status(text=No safe moves)"
+                   }
+                
+                }
+            }
+            case _ => {
+                val chosenDir = Random.shuffle(directions8).head
+                s"Move(direction=${chosenDir})"
+            }
+        }
+        result
+        //"Status(text=pawan)"
+    }
+    
+    def parseInput(input: String): (String, Map[String, String]) = {
+        println(input)
+        val tokens = input.split('(') // Array("React", "generation=0,time=100,...")
+        val opcode = tokens(0)
+        val paramsString = tokens(1).dropRight(1) // "generation=0,time=100,view=...,energy=100"
+        val paramsArray = paramsString.split(',')
+        val paramMap = paramsArray.map(_.split('=')).map(a => (a(0), a(1))).toMap
+        (opcode, paramMap)
+    }
+    
+    def findNearestFood(view: View): Option[XY] = {
+      val foodChars = Set('B', 'P')
+      
+      // Generate all possible relative positions within view range except center (0,0)
+      val range = -(view.size/2) to (view.size/2)
+      
+      val foodPositions =
+        for {
+          dx <- range; dy <- range if !(dx == 0 && dy == 0)
+          pos = XY(dx, dy)
+          c   = view(pos)
+          if foodChars.contains(c)
+        } yield pos
+    
+       // Find nearest by Manhattan distance:
+       foodPositions.sortBy(_.length).headOption
+    }
+}
+
+case class View(cells: String) {
+  val size = math.sqrt(cells.length).toInt
+  val center = XY(size / 2, size / 2)
+
+  // Convert absolute position (from top-left) to index in string
+  def indexFromAbsPos(absPos: XY): Int = absPos.x + absPos.y * size
+
+  // Convert relative position (from bot's perspective) to absolute position
+  def absPosFromRelPos(relPos: XY): XY = relPos + center
+
+  // Access cell at absolute position
+  def cellAtAbsPos(absPos: XY): Char = cells.charAt(indexFromAbsPos(absPos))
+
+  // Access cell at relative position (relative to bot)
+  def cellAtRelPos(relPos: XY): Char = {
+    val abs = absPosFromRelPos(relPos)
+    if (abs.x >=0 && abs.x < size && abs.y >=0 && abs.y < size)
+      cells.charAt(indexFromAbsPos(abs))
+    else '?'
+  }
+
+  // Overload apply for convenient access with relative coordinates
+  def apply(relXY: XY): Char = cellAtRelPos(relXY)
+}
+
+case class XY(x: Int, y: Int) {
+  def +(other: XY): XY = XY(x + other.x, y + other.y)
+  def length: Int = math.abs(x) + math.abs(y) // Manhattan distance
+  override def toString: String = s"$x:$y"
+}
+```
+
+I can assure you that almost 95% of the above code was generated by the llm. I had to tweak it a bit to make it Scalatron compatible. And to fix some scala compilation issues. But The output was simply amazing. To see the bot in action made this excercise totally worth the time and effort. Here is the bot in action - 
+
+{% include figure image_path="/assets/images/scalatron_bot.gif" alt="Scalatron Bot" caption="Scalatron Bot" %}
+
